@@ -291,7 +291,6 @@ extern volatile char isItTimeToYield;
 #define DE_TERMINATE 2
 #define DE_PRIORITYCHANGE 4     /* set when a client's priority changes */
 
-extern volatile char dispatchException;
 
 extern int ScreenSaverBlanking;
 extern int ScreenSaverAllowExposures;

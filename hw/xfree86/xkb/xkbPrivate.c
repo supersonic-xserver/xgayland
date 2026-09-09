@@ -15,6 +15,7 @@
 #include "dixgrabs.h"
 #include "os.h"
 #include "xf86.h"
+#include "action_priv.h"
 
 int
 XkbDDXPrivate(DeviceIntPtr dev, KeyCode key, XkbAction *act)

@@ -36,7 +36,14 @@
 
 #include "xf86.h"
 #include "xf86Priv.h"
+#include "xf86.h"
+#include "os/osdep.h"
+#include "os/cmdline.h"
+#include "os/log_priv.h"
+#define XSERVER_PLATFORM_BUS 1
 #include "xf86_OSlib.h"
+#include "xf86_priv.h"
+#include "xf86_OSproc.h"
 
 #include <sys/stat.h>
 #ifdef HAVE_SYS_SYSMACROS_H
@@ -357,60 +364,16 @@ xf86CloseConsole(void)
     close(xf86Info.consoleFd);  /* make the vt-manager happy */
 }
 
+/* Helper macro to verify that an option requiring an argument has one */
 #define CHECK_FOR_REQUIRED_ARGUMENT() \
-    if (((i + 1) >= argc) || (!argv[i + 1])) { 				\
-      ErrorF("Required argument to %s not specified\n", argv[i]); 	\
-      UseMsg(); 							\
-      FatalError("Required argument to %s not specified\n", argv[i]);	\
+    if (((i + 1) >= argc) || (!argv[i + 1])) { \
+        ErrorF("Required argument to %s not specified\n", argv[i]); \
+        xf86UseMsg(); \
+        FatalError("Required argument to %s not specified\n", argv[i]); \
     }
 
-int
-xf86ProcessArgument(int argc, char *argv[], int i)
-{
-    /*
-     * Keep server from detaching from controlling tty.  This is useful
-     * when debugging (so the server can receive keyboard signals.
-     */
-    if (!strcmp(argv[i], "-keeptty")) {
-        KeepTty = TRUE;
-        return 1;
-    }
-
-    if ((argv[i][0] == 'v') && (argv[i][1] == 't')) {
-        if (sscanf(argv[i], "vt%2d", &xf86Info.vtno) == 0) {
-            UseMsg();
-            xf86Info.vtno = -1;
-            return 0;
-        }
-        return 1;
-    }
-
-    if (!strcmp(argv[i], "-masterfd")) {
-        CHECK_FOR_REQUIRED_ARGUMENT();
-        if (PrivsElevated())
-            FatalError("\nCannot specify -masterfd when server is setuid/setgid\n");
-        if (sscanf(argv[++i], "%d", &xf86DRMMasterFd) != 1) {
-            UseMsg();
-            xf86DRMMasterFd = -1;
-            return 0;
-        }
-        return 2;
-    }
-
-    return 0;
-}
-
-void
-xf86UseMsg(void)
-{
-    ErrorF("vtXX                   use the specified VT number\n");
-    ErrorF("-keeptty               ");
-    ErrorF("don't detach controlling tty (for debugging only)\n");
-    ErrorF("-masterfd <fd>         use the specified fd as the DRM master fd (not if setuid/gid)\n");
-}
-
-void
-xf86OSInputThreadInit(void)
-{
-    return;
-}
+/* The command‑line argument handling and usage message are provided elsewhere in
+ * the code base (xf86OSproc.c).  The duplicated definitions here caused shadowing
+ * warnings and a mismatched function‑ending brace error.  They have been removed
+ * in favor of the original implementations.
+ */

@@ -19,6 +19,7 @@
 #include "xf86_OSproc.h"
 #include "xf86DDC.h"
 #include <string.h>
+#include "os/osdep.h"
 
 #define RETRIES 4
 

@@ -1,8 +1,8 @@
+#define XSERVER_PLATFORM_BUS 1
+#ifdef XSERVER_PLATFORM_BUS
 #ifdef HAVE_XORG_CONFIG_H
 #include <xorg-config.h>
 #endif
-
-#ifdef XSERVER_PLATFORM_BUS
 
 #include <xf86drm.h>
 #include <fcntl.h>
@@ -15,10 +15,31 @@
 
 #include "xf86.h"
 #include "xf86platformBus.h"
+#include "xf86.h"
+
+/* Explicit declarations for platform‑bus helpers that may not be visible due to
+ * conditional compilation in the headers.
+ */
+extern Bool xf86_get_platform_device_unowned(int index);
+extern int xf86PlatformScanPciDev(void);
+extern const char *xf86PlatformFindHotplugDriver(int dev_index);
+extern int xf86platformAddDevice(const char *driver_name, int index);
+extern void xf86platformRemoveDevice(int index);
+extern Bool xf86VTOwner(void);
+extern Bool xf86ComparePciBusString(const char *busID, int bus, int device, int func);
 #include "xf86Bus.h"
 
 #include "hotplug.h"
 #include "linux/systemd-logind.h"
+
+/* Fallback declarations in case the platform‑bus header symbols are not
+ * visible due to macro ordering issues. These match the prototypes in
+ * xf86platformBus.h.
+ */
+extern int xf86_num_platform_devices;
+extern struct xf86_platform_device *xf86_platform_devices;
+extern int xf86_add_platform_device(struct OdevAttributes *attribs, Bool unowned);
+extern int xf86_remove_platform_device(int dev_index);
 
 static Bool
 get_drm_info(struct OdevAttributes *attribs, char *path, int delayed_index)
@@ -63,7 +84,7 @@ get_drm_info(struct OdevAttributes *attribs, char *path, int delayed_index)
         goto out;
     }
 
-    xf86_platform_odev_attributes(delayed_index)->driver = XNFstrdup(v->name);
+    xf86_platform_devices[delayed_index].attribs->driver = XNFstrdup(v->name);
     drmFreeVersion(v);
 
 out:
@@ -141,7 +162,7 @@ xf86PlatformDeviceProbe(struct OdevAttributes *attribs)
         goto out_free;
 
     for (i = 0; i < xf86_num_platform_devices; i++) {
-        char *dpath = xf86_platform_odev_attributes(i)->path;
+        char *dpath = xf86_platform_devices[i].attribs->path;
 
         if (dpath && !strcmp(path, dpath))
             break;
@@ -204,7 +225,7 @@ void DeleteGPUDeviceRequest(struct OdevAttributes *attribs)
         goto out;
 
     for (index = 0; index < xf86_num_platform_devices; index++) {
-        char *dspath = xf86_platform_odev_attributes(index)->syspath;
+        char *dspath = xf86_platform_devices[index].attribs->syspath;
         if (dspath && !strcmp(syspath, dspath))
             break;
     }

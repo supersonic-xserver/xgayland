@@ -41,6 +41,8 @@
 #include "os/log_priv.h"
 #include "os/ddx_priv.h"
 #include "hw/xfree86/parser/xf86Parser.h"
+/* Ensure prototype for configuration write helper is visible */
+extern int xf86writeConfigFile(const char *, XF86ConfigPtr);
 extern void OsCleanup(Bool);
 
 
@@ -297,8 +299,8 @@ configureDeviceSection(int screennum)
             "        ### Available Driver options are:-\n"
             "        ### Values: <i>: integer, <f>: float, "
             "<bool>: \"True\"/\"False\",\n"
-            "        ### <string>: "String", <freq>: "<f> Hz/kHz/MHz",\n"
-            "        ### <percent>: "<f>%"\n"
+            "        ### <string>: \"String\", <freq>: \"<f> Hz/kHz/MHz\",\n"
+            "        ### <percent>: \"<f>%\"\n"
             "        ### [arg]: arg optional\n";
         ptr->dev_comment = XNFstrdup(descrip);
         if (ptr->dev_comment) {

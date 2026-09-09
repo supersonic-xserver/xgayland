@@ -58,7 +58,7 @@
 #include "xf86.h"
 #include "xf86Priv.h"
 #include "xf86Config.h"
-#include \"hw/xfree86/parser/xf86Parser_priv.h\"\n
+#include "hw/xfree86/parser/xf86Parser_priv.h"
 #include "xf86Xinput.h"
 #include "XIstubs.h"
 #include "xf86Optrec.h"

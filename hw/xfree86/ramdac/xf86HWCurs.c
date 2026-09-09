@@ -7,7 +7,10 @@
 
 #include "misc.h"
 #include "xf86.h"
+#include "randrstr.h"
 #include "xf86_OSproc.h"
+#include "dix/colormap_priv.h"
+#include "randr/randrstr_priv.h"
 
 #include <X11/X.h>
 #include "scrnintstr.h"

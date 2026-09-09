@@ -66,6 +66,7 @@
 #include <X11/Xdefs.h>
 #include "xf86Optrec.h"
 #include "list.h"
+#include <regex.h>
 
 #define HAVE_PARSER_DECLS
 
@@ -302,11 +303,22 @@ typedef struct {
     Bool val;
 } xf86TriState;
 
+/* Group of match conditions used by Input/Output classes */
 typedef struct {
     struct xorg_list entry;
-    char **values;
+    struct xorg_list patterns;   /* list of xf86MatchPattern */
     Bool is_negated;
+    char **values;               /* legacy NULL‑terminated list of strings */
 } xf86MatchGroup;
+
+/* Individual pattern inside a match group */
+typedef struct {
+    struct xorg_list entry;
+    int token;          /* token identifier */
+    Bool is_negated;
+    char *str;          /* pattern string */
+    regex_t *regex;    /* compiled regex (if needed) */
+} xf86MatchPattern;
 
 typedef struct {
     GenericListRec list;

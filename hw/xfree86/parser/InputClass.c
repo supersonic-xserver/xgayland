@@ -32,6 +32,7 @@
 #include "xf86Parser.h"
 #include "xf86tokens.h"
 #include "Configint.h"
+#include "os/fmt.h"
 
 
 static const xf86ConfigSymTabRec InputClassTab[] = {

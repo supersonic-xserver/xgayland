@@ -28,6 +28,7 @@
 #include <stddef.h>
 #include <string.h>
 #include "hw/xfree86/common/xf86Priv.h"
+#include "randr/randrstr_priv.h"
 #include "hw/xfree86/ddc/xf86DDC.h"
 
 

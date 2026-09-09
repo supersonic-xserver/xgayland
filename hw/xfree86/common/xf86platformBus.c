@@ -37,7 +37,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "os.h"
+#include "os/osdep.h"
 #include "hotplug.h"
+#include "dix/settings_priv.h"
 #include "linux/systemd-logind.h"
 #include "dix/input_priv.h"
 #include "dix/dix_priv.h"

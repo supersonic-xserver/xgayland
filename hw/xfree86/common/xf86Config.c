@@ -47,7 +47,6 @@
 #endif
 
 #include <sys/stat.h>
-#include "hw/xfree86/parser/xf86Parser_priv.h"
 #include "dix/settings_priv.h"
 #include "dix/resource_priv.h"
 
@@ -56,10 +55,12 @@
 
 #include "os/osdep.h"
 
-#include "xf86.h"
+#include "xf86Parser.h"
+#include "hw/xfree86/parser/xf86Parser_priv.h"
 #include "xf86Modes.h"
 #include "hw/xfree86/parser/xf86Parser.h"
 #include "xf86tokens.h"
+#include "xf86.h"
 #include "xf86Config.h"
 #include "xf86Priv.h"
 #include "xf86_OSlib.h"
@@ -765,7 +766,9 @@ configServerFlags(XF86ConfFlagsPtr flagsconf, XF86OptionPtr layoutopts)
         xf86Msg(X_CONFIG, "Ignoring ABI Version\n");
     }
 
-    xf86GetOptValBool(FlagOptions, FLAG_ALLOW_BYTE_SWAPPED_CLIENTS, &dixSettingAllowByteSwappedClients);
+    Bool allowByteSwapped = FALSE;
+    xf86GetOptValBool(FlagOptions, FLAG_ALLOW_BYTE_SWAPPED_CLIENTS, &allowByteSwapped);
+    dixSettingAllowByteSwappedClients = allowByteSwapped;
     if (dixSettingAllowByteSwappedClients) {
         xf86Msg(X_CONFIG, "Allowing byte-swapped clients\n");
     }
@@ -1648,6 +1651,9 @@ configImpliedLayout(serverLayoutPtr servlayoutp, XF86ConfScreenPtr conf_screen,
 
     memset(&layout, 0, sizeof(layout));
     layout.lay_identifier = servlayoutp->id;
+    /* The parser provides xf86layoutAddInputDevices; ensure the prototype is
+       visible before use. */
+    extern int xf86layoutAddInputDevices(XF86ConfigPtr config, XF86ConfLayoutPtr layout);
     if (xf86layoutAddInputDevices(conf_ptr, &layout) > 0) {
         if (!configInputDevices(&layout, servlayoutp))
             return FALSE;
@@ -2158,6 +2164,8 @@ configDRI(XF86ConfDRIPtr drip)
 {
     struct group *grp;
 
+    /* xf86ConfigDRI is defined in xf86Globals.c and declared in xf86.h */
+    extern confDRIRec xf86ConfigDRI;
     xf86ConfigDRI.group = -1;
     xf86ConfigDRI.mode = 0;
 

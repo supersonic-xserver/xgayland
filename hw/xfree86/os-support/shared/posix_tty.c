@@ -64,6 +64,9 @@
 #include "xf86.h"
 #include "xf86Priv.h"
 #include "xf86_OSlib.h"
+#include "os/log_priv.h"
+#include "os.h"
+#include "os/log_priv.h"
 
 static int
 GetBaud(int baudrate)

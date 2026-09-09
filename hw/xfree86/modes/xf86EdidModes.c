@@ -33,14 +33,19 @@
 
 #define _PARSE_EDID_
 #include "xf86.h"
-#include "xf86DDC.h"
+#include "../ddc/xf86DDC.h"
+#include "edid.h"
 #include <X11/Xatom.h>
 #include "property.h"
 #include "propertyst.h"
 #include "xf86Crtc.h"
+#include "xf86Modes.h"
 #include <string.h>
 #include <math.h>
-static DisplayModePtr DDCModesFromEstablished(int scrnIndex, struct established_timings *timing, ddc_quirk_t quirks);\nstatic DisplayModePtr DDCModesFromStandardTiming(DisplayModePtr pool, struct std_timings *timing, ddc_quirk_t quirks, int timing_level, Bool rb);\nstatic DisplayModePtr DDCModeFromDetailedTiming(int scrnIndex, struct detailed_timings *timing, Bool preferred, ddc_quirk_t quirks);\n
+static DisplayModePtr DDCModesFromEstablished(int scrnIndex, struct established_timings *timing, ddc_quirk_t quirks);
+static DisplayModePtr DDCModesFromStandardTiming(DisplayModePtr pool, struct std_timings *timing, ddc_quirk_t quirks, int timing_level, Bool rb);
+static DisplayModePtr DDCModesFromDetailedTiming(int scrnIndex, struct detailed_timings *timing, Bool preferred, ddc_quirk_t quirks);
+
 
 static void
 handle_detailed_rblank(struct detailed_monitor_section *det_mon, void *data)
@@ -593,8 +598,8 @@ DDCModeFromDetailedTiming(int scrnIndex, struct detailed_timings *timing,
     /* We only do separate sync currently */
     if (timing->sync != 0x03) {
         xf86DrvMsg(scrnIndex, X_INFO,
-                   "%s: %dx%d Warning: We only handle separate"
-                   " sync.\n", __func__, timing->h_active, timing->v_active);
+                   "%s: %dx%d Warning: We only handle separate sync.\n",
+                   __func__, timing->h_active, timing->v_active);
     }
 
     Mode = XNFcallocarray(1, sizeof(DisplayModeRec));
@@ -1125,6 +1130,7 @@ handle_detailed_monset(struct detailed_monitor_section *det_mon, void *data)
 
     switch (det_mon->type) {
     case DS_RANGES:
+        /* Horizontal sync ranges */
         if (!p->have_hsync) {
             if (!p->Monitor->nHsync)
                 xf86DrvMsg(scrnIndex, X_INFO,
@@ -1134,12 +1140,12 @@ handle_detailed_monset(struct detailed_monitor_section *det_mon, void *data)
             p->Monitor->hsync[p->Monitor->nHsync].hi =
                 det_mon->section.ranges.max_h;
             p->Monitor->nHsync++;
-        }
-        else {
+        } else {
             xf86DrvMsg(scrnIndex, X_INFO,
                        "Using hsync ranges from config file\n");
         }
 
+        /* Vertical refresh ranges */
         if (!p->have_vrefresh) {
             if (!p->Monitor->nVrefresh)
                 xf86DrvMsg(scrnIndex, X_INFO,
@@ -1149,8 +1155,7 @@ handle_detailed_monset(struct detailed_monitor_section *det_mon, void *data)
             p->Monitor->vrefresh[p->Monitor->nVrefresh].hi =
                 det_mon->section.ranges.max_v;
             p->Monitor->nVrefresh++;
-        }
-        else {
+        } else {
             xf86DrvMsg(scrnIndex, X_INFO,
                        "Using vrefresh ranges from config file\n");
         }
@@ -1199,7 +1204,6 @@ xf86EdidMonitorSet(int scrnIndex, MonPtr Monitor, xf86MonPtr DDC)
     xf86ForEachDetailedBlock(DDC, handle_detailed_monset, &p);
 
     if (Modes) {
-        /* Print Modes */
         xf86DrvMsg(scrnIndex, X_INFO, "Printing DDC gathered Modelines:\n");
 
         Mode = Modes;

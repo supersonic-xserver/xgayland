@@ -30,6 +30,7 @@
 #include "xf86.h"
 #include "xf86Priv.h"
 #include "xf86_OSlib.h"
+#include "os/osdep.h"
 
 /*
  * Handle the VT-switching interface for OSs that use USL-style ioctl()s

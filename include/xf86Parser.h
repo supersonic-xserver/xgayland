@@ -305,6 +305,12 @@ typedef struct {
     struct xorg_list entry;
     struct xorg_list patterns;
     Bool is_negated;
+    /* Compatibility field for older code that expects a NULL‑terminated list of
+       string values.  The modern parser stores pattern strings in the
+       `patterns` list, but some legacy modules (e.g., xf86Xinput) still access a
+       `values` member.  Keeping this pointer ensures those modules compile while
+       not interfering with the newer pattern handling. */
+    char **values;
 } xf86MatchGroup;
 
 typedef enum {
@@ -490,5 +496,7 @@ extern _X_EXPORT int xf86pathIsAbsolute(const char *path);
 extern _X_EXPORT int xf86pathIsSafe(const char *path);
 extern _X_EXPORT char *xf86addComment(char *cur, const char *add);
 extern _X_EXPORT Bool xf86getBoolValue(Bool *val, const char *str);
+/* Added for compatibility with code that directly calls the close helper */
+extern void xf86closeConfigFile(void);
 
 #endif                          /* _xf86Parser_h_ */

@@ -37,6 +37,8 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <X11/Xproto.h>
 #include <X11/keysym.h>
 #include "inputstr.h"
+#include "xf86.h"
+#include "action_priv.h"
 #include "scrnintstr.h"
 #include "windowstr.h"
 #include <xkbsrv.h>

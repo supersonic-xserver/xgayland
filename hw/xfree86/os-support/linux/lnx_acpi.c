@@ -7,6 +7,15 @@
 #include "xf86Priv.h"
 #define XF86_OS_PRIVS
 #include "xf86_OSproc.h"
+#include "os/log_priv.h"
+#include "xf86Priv.h"
+#include "xf86str.h"
+/* xf86_pm.h is not present in this tree; its definitions are provided by xf86str.h */
+#include "xf86.h"
+/* Forward declarations for PM handling (in case headers are not pulled in) */
+extern int (*xf86PMGetEventFromOs) (int fd, pmEvent * events, int num);
+extern pmWait (*xf86PMConfirmEventToOs) (int fd, pmEvent event);
+extern void xf86HandlePMEvents(int fd, void *data);
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <sys/socket.h>

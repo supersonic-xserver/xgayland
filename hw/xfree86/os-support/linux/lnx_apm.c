@@ -3,12 +3,22 @@
 #include <xorg-config.h>
 #endif
 
-#include <X11/X.h>
-#include "os.h"
+#define XSERVER_PLATFORM_BUS 1
 #include "xf86.h"
+#include "xf86_OSlib.h"
+#include "xf86Priv.h"
+#include "os/log_priv.h"
 #include "xf86Priv.h"
 #define XF86_OS_PRIVS
 #include "xf86_OSproc.h"
+
+/* Explicit declarations for PM handling symbols that may be omitted when the
+ * corresponding headers are not included due to conditional compilation.
+ */
+extern Bool xf86acpiDisableFlag;
+extern int (*xf86PMGetEventFromOs) (int fd, pmEvent * events, int num);
+extern pmWait (*xf86PMConfirmEventToOs) (int fd, pmEvent event);
+extern void xf86HandlePMEvents(int fd, void *data);
 
 #ifdef HAVE_ACPI
 extern PMClose lnxACPIOpen(void);
@@ -138,11 +148,13 @@ xf86OSPMOpen(void)
 #ifdef HAVE_ACPI
     /* Favour ACPI over APM, but only when enabled */
 
+    #ifdef HAVE_ACPI
     if (!xf86acpiDisableFlag) {
         ret = lnxACPIOpen();
         if (ret)
             return ret;
     }
+    #endif
 #endif
 #ifdef HAVE_APM
     ret = lnxAPMOpen();

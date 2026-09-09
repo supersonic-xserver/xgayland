@@ -32,6 +32,9 @@
 #include <libxcvt/libxcvt.h>
 #include "xf86Modes.h"
 #include "xf86Priv.h"
+#include "xf86DDC.h"
+#include "xf86.h"
+#include "xf86_priv.h"
 
 extern XF86ConfigPtr xf86configptr;
 
