@@ -38,7 +38,8 @@ from The Open Group.
 
 #include "dix/colormap_priv.h"
 #include "dix/dix_priv.h"
-#include "dix/screenint_priv.h"
+// #include "dix/screenint_priv.h"
+#undef InitOutput
 #include "include/extinit.h"
 #include "mi/mi_priv.h"
 #include "mi/mipointer_priv.h"
@@ -1046,8 +1047,8 @@ vfbScreenInit(ScreenPtr pScreen, int argc, char **argv)
 
 }                               /* end vfbScreenInit */
 
-void
-InitOutput(int argc, char **argv)
+static void
+vfbInitOutput(int argc, char **argv)
 {
     int i;
     int NumFormats = 0;
@@ -1111,3 +1112,10 @@ InitOutput(int argc, char **argv)
     }
 
 }                               /* end InitOutput */
+
+/* Wrapper to match the prototype expected by screenint_priv.h */
+void InitOutput(ScreenInfo *pScreenInfo, int argc, char **argv)
+{
+    (void)pScreenInfo; /* unused */
+    vfbInitOutput(argc, argv);
+}

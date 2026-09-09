@@ -61,11 +61,20 @@ GlxExtensionInit(void)
 {
 }
 
+/* Forward declaration of the internal InitOutput implementation */
+static void xnestInitOutput(int argc, char **argv);
+/* Wrapper to match prototype expected by screenint_priv.h */
+void InitOutput(ScreenInfo *pScreenInfo, int argc, char **argv)
+{
+    (void)pScreenInfo; /* unused */
+    xnestInitOutput(argc, argv);
+}
+
 Bool noGlxExtension = FALSE;
 #endif
 
-void
-InitOutput(int argc, char *argv[])
+static void
+xnestInitOutput(int argc, char *argv[])
 {
     int i;
 

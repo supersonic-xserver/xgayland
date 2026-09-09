@@ -966,114 +966,111 @@ extern int glamor_xv_num_attributes;
 extern XvImageRec glamor_xv_images[];
 extern int glamor_xv_num_images;
 
-void glamor_xv_init_port(glamor_port_private *port_priv);
-void glamor_xv_stop_video(glamor_port_private *port_priv);
-int glamor_xv_set_port_attribute(glamor_port_private *port_priv,
-                                 Atom attribute, INT32 value);
-int glamor_xv_get_port_attribute(glamor_port_private *port_priv,
-                                 Atom attribute, INT32 *value);
-int glamor_xv_query_image_attributes(int id,
-                                     unsigned short *w, unsigned short *h,
-                                     int *pitches, int *offsets);
-int glamor_xv_put_image(glamor_port_private *port_priv,
-                        DrawablePtr pDrawable,
-                        short src_x, short src_y,
-                        short drw_x, short drw_y,
-                        short src_w, short src_h,
-                        short drw_w, short drw_h,
-                        int id,
-                        unsigned char *buf,
-                        short width,
-                        short height,
-                        Bool sync,
-                        RegionPtr clipBoxes);
-void glamor_xv_core_init(ScreenPtr screen);
-void glamor_xv_render(glamor_port_private *port_priv, int id);
+// void glamor_xv_init_port(glamor_port_private *port_priv);
+// void glamor_xv_stop_video(glamor_port_private *port_priv);
+// int glamor_xv_set_port_attribute(glamor_port_private *port_priv,
+//                                  Atom attribute, INT32 value);
+// int glamor_xv_get_port_attribute(glamor_port_private *port_priv,
+//                                  Atom attribute, INT32 *value);
+// int glamor_xv_query_image_attributes(int id,
+//                                      unsigned short *w, unsigned short *h,
+//                                      int *pitches, int *offsets);
+// int glamor_xv_put_image(glamor_port_private *port_priv,
+//                         DrawablePtr pDrawable,
+// The following prototypes are defined in glamor.h and are therefore
+// removed from glamor_priv.h to avoid duplicate declarations.
+// Bool glamor_set_pixmap_texture(PixmapPtr pixmap, unsigned int tex);
+// void glamor_set_pixmap_type(PixmapPtr pixmap, glamor_pixmap_type_t type);
+// /* This function should be called after glamor_init,
+//  * but before adding a glamor GLX provider */
+// void glamor_set_glvnd_vendor(ScreenPtr screen, const char *vendor);
+// void glamor_pixmap_exchange_fbos(PixmapPtr front, PixmapPtr back);
+// void glamor_pixmap_exchange_fbos(PixmapPtr front, PixmapPtr back);
+// void glamor_enable_dri3(ScreenPtr screen);
+// int glamor_fds_from_pixmap(ScreenPtr screen,  PixmapPtr pixmap, int *fds,
+//                            uint32_t *strides, uint32_t *offsets,
+//                            uint64_t *modifier);
+// int glamor_egl_fd_name_from_pixmap(ScreenPtr pScreen, PixmapPtr pPixmap,
+//                                   CARD16 *stride, CARD32 *size);
+// int glamor_egl_fd_from_pixmap(ScreenPtr, PixmapPtr, CARD16 *, CARD32 *);
 
-Bool glamor_set_pixmap_texture(PixmapPtr pixmap, unsigned int tex);
+// /* @glamor_fds_from_pixmap: Get a dma-buf fd from a pixmap.
+//  *
+//  * @screen: Current screen pointer.
+//  * @pixmap: The pixmap from which we want the fd.
+//  * @fds, @strides, @offsets: Pointers to fill info of each plane.
+//  * @modifier: Pointer to fill the modifier of the buffer.
+//  *
+//  * the pixmap and the buffer associated by the fds will share the same
+//  * content. The caller is responsible to close the returned file descriptors.
+//  * Returns the number of planes, -1 on error.
+//  * */
+// int glamor_fds_from_pixmap(ScreenPtr screen,  PixmapPtr pixmap, int *fds,
+//                             uint32_t *strides, uint32_t *offsets,
+//                             uint64_t *modifier);
 
-void glamor_set_pixmap_type(PixmapPtr pixmap, glamor_pixmap_type_t type);
+// /* @glamor_pixmap_from_fds: Creates a pixmap to wrap a dma-buf fds.
+//  *
+//  * @screen: Current screen pointer.
+//  * @num_fds: Number of fds to import
+//  * @fds: The dma-buf fds to import.
+//  * @width: The width of the buffers.
+//  * @height: The height of the buffers.
+//  * @stride: The stride of the buffers.
+//  * @depth: The depth of the buffers.
+//  * @bpp: The bpp of the buffers.
+//  * @modifier: The modifier of the buffers.
+//  *
+//  * Returns a valid pixmap if the import succeeded, else NULL.
+// PixmapPtr glamor_pixmap_from_fds(ScreenPtr screen,
+//                                  CARD8 num_fds,
+//                                  const int *fds,
+//                                  CARD16 width,
+//                                  CARD16 height,
+//                                  const CARD32 *strides,
+//                                  const CARD32 *offsets,
+//                                  CARD8 depth,
+//                                  CARD8 bpp,
+//                                  uint64_t modifier);
+//                                   uint64_t modifier);
 
-/* This function should be called after glamor_init,
- * but before adding a glamor GLX provider */
-void glamor_set_glvnd_vendor(ScreenPtr screen, const char *vendor);
+// Bool glamor_get_formats(ScreenPtr screen, CARD32 *num_formats, CARD32 **formats);
 
-void glamor_pixmap_exchange_fbos(PixmapPtr front, PixmapPtr back);
+// Bool glamor_get_modifiers(ScreenPtr screen,
+//                           uint32_t format,
+//                           uint32_t *num_modifiers,
+//                           uint64_t **modifiers);
 
-/* The DDX is not supposed to call these four functions */
-void glamor_enable_dri3(ScreenPtr screen);
-int glamor_egl_fds_from_pixmap(ScreenPtr pScreen, PixmapPtr pPixmap, int *fds,
-                               uint32_t *strides, uint32_t *offsets,
-                               uint64_t *modifier);
-int glamor_egl_fd_name_from_pixmap(ScreenPtr pScreen, PixmapPtr pPixmap,
-                                   CARD16 *stride, CARD32 *size);
+// Bool glamor_get_drawable_modifiers(DrawablePtr draw,
+//                                    uint32_t format,
+//                                    uint32_t *num_modifiers,
+//                                    uint64_t **modifiers);
 
-int glamor_egl_fd_from_pixmap(ScreenPtr, PixmapPtr, CARD16 *, CARD32 *);
+// void glamor_egl_screen_init(ScreenPtr screen,
+//                             struct glamor_context *glamor_ctx);
 
-/* @glamor_fds_from_pixmap: Get a dma-buf fd from a pixmap.
- *
- * @screen: Current screen pointer.
- * @pixmap: The pixmap from which we want the fd.
- * @fds, @strides, @offsets: Pointers to fill info of each plane.
- * @modifier: Pointer to fill the modifier of the buffer.
- *
- * the pixmap and the buffer associated by the fds will share the same
- * content. The caller is responsible to close the returned file descriptors.
- * Returns the number of planes, -1 on error.
- * */
-int glamor_fds_from_pixmap(ScreenPtr screen,  PixmapPtr pixmap, int *fds,
-                           uint32_t *strides, uint32_t *offsets,
-                           uint64_t *modifier);
+// Bool glamor_change_window_attributes(WindowPtr pWin, unsigned long mask);
 
-/* @glamor_pixmap_from_fds: Creates a pixmap to wrap a dma-buf fds.
- *
- * @screen: Current screen pointer.
- * @num_fds: Number of fds to import
- * @fds: The dma-buf fds to import.
- * @width: The width of the buffers.
- * @height: The height of the buffers.
- * @stride: The stride of the buffers.
- * @depth: The depth of the buffers.
- * @bpp: The bpp of the buffers.
- * @modifier: The modifier of the buffers.
- *
- * Returns a valid pixmap if the import succeeded, else NULL.
- * */
-PixmapPtr glamor_pixmap_from_fds(ScreenPtr screen,
-                                 CARD8 num_fds,
-                                 const int *fds,
-                                 CARD16 width,
-                                 CARD16 height,
-                                 const CARD32 *strides,
-                                 const CARD32 *offsets,
-                                 CARD8 depth,
-                                 CARD8 bpp,
-                                 uint64_t modifier);
+// void glamor_copy_window(WindowPtr window, xPoint old_origin, RegionPtr src_region);
 
-Bool glamor_get_formats(ScreenPtr screen, CARD32 *num_formats, CARD32 **formats);
+// Bool glamor_destroy_pixmap(PixmapPtr pixmap);
+// Bool glamor_get_drawable_modifiers(DrawablePtr draw,
+//                                    uint32_t format,
+//                                    uint32_t *num_modifiers,
+//                                    uint64_t **modifiers);
 
-Bool glamor_get_modifiers(ScreenPtr screen,
-                          uint32_t format,
-                          uint32_t *num_modifiers,
-                          uint64_t **modifiers);
+// void glamor_egl_screen_init(ScreenPtr screen,
+//                             struct glamor_context *glamor_ctx);
 
-Bool glamor_get_drawable_modifiers(DrawablePtr draw,
-                                   uint32_t format,
-                                   uint32_t *num_modifiers,
-                                   uint64_t **modifiers);
+// Bool glamor_change_window_attributes(WindowPtr pWin, unsigned long mask);
 
-void glamor_egl_screen_init(ScreenPtr screen,
-                            struct glamor_context *glamor_ctx);
+// void glamor_copy_window(WindowPtr window, xPoint old_origin, RegionPtr src_region);
 
-Bool glamor_change_window_attributes(WindowPtr pWin, unsigned long mask);
-
-void glamor_copy_window(WindowPtr window, xPoint old_origin, RegionPtr src_region);
-
-/*
- * unref a glamor pixmap (specialized form of fbPixmap) and free
- * if refcnt already had reached 1
- */
-Bool glamor_destroy_pixmap(PixmapPtr pixmap);
+// /*
+//  * unref a glamor pixmap (specialized form of fbPixmap) and free
+//  * if refcnt already had reached 1
+//  */
+// Bool glamor_destroy_pixmap(PixmapPtr pixmap);
 
 #include "glamor_utils.h"
 

@@ -66,10 +66,14 @@ typedef Bool (*GetDrawableModifiersFuncPtr) (DrawablePtr draw,
                                              uint64_t **modifiers);
 
 #define GLAMOR_EGL_EXTERNAL_BUFFER 3
-#define GLAMOR_USE_EGL_SCREEN		(1 << 0)
-#define GLAMOR_NO_DRI3			(1 << 1)
+#define GLAMOR_USE_EGL_SCREEN           (1 << 0)
+#define GLAMOR_NO_DRI3                  (1 << 1)
+/* GLAMOR_NO_RENDER_ACCEL allows optional EXA render/composite fallback
+   while keeping glamor core active. */
+#define GLAMOR_NO_RENDER_ACCEL          (1 << 2)
 #define GLAMOR_VALID_FLAGS      (GLAMOR_USE_EGL_SCREEN                \
-                                 | GLAMOR_NO_DRI3)
+                                 | GLAMOR_NO_DRI3                     \
+                                 | GLAMOR_NO_RENDER_ACCEL)
 
 /* until we need geometry shaders GL3.1 should suffice. */
 #define GLAMOR_GL_CORE_VER_MAJOR 3
@@ -106,7 +110,9 @@ extern _X_EXPORT void glamor_fini(ScreenPtr screen);
  * screen pixmap which must be a glamor pixmap and requires
  * the internal data structure still exist at that time.
  * Otherwise, the glamor internal structure will not be freed.*/
-extern _X_EXPORT Bool glamor_close_screen(ScreenPtr screen);
+/* The glamor_close_screen wrapper is no longer exported; the close screen
+   cleanup is performed via a callback registered in glamor.c. */
+/* extern _X_EXPORT Bool glamor_close_screen(ScreenPtr screen); */
 
 extern _X_EXPORT uint32_t glamor_get_pixmap_texture(PixmapPtr pixmap);
 
