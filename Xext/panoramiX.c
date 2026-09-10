@@ -48,6 +48,7 @@ Equipment Corporation.
 #include "window.h"
 #include "windowstr.h"
 #include "pixmapstr.h"
+_X_EXPORT Bool noPanoramiXExtension = FALSE;
 #include "panoramiX.h"
 #include <X11/extensions/panoramiXproto.h>
 #include "panoramiXsrv.h"

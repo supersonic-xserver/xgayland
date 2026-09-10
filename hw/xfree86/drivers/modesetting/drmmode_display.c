@@ -42,14 +42,15 @@
 #include "mi.h"
 #include "micmap.h"
 #include "xf86cmap.h"
-#include "xf86DDC.h"
+#include "os/fmt.h"
+#include "hw/xfree86/ddc/xf86DDC.h"
 #include <drm_fourcc.h>
 #include <drm_mode.h>
 
 #include <xf86drm.h>
 #include "xf86Crtc.h"
 #include "drmmode_display.h"
-#include "present.h"
+#include "present/present.h"
 
 #include <cursorstr.h>
 

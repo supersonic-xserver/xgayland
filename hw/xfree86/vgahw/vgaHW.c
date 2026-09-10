@@ -23,6 +23,8 @@
 #include "vgaHW.h"
 
 #include "compiler.h"
+#include "os/log_priv.h"
+extern _X_EXPORT Bool xf86GetFlipPixels(void);n
 
 #include "xf86cmap.h"
 
@@ -729,7 +731,7 @@ vgaHWRestoreFonts(ScrnInfoPtr scrninfp, vgaRegPtr restore)
         doMap = TRUE;
         if (!vgaHWMapMem(scrninfp)) {
             xf86DrvMsg(scrninfp->scrnIndex, X_ERROR,
-                       "vgaHWRestoreFonts: vgaHWMapMem() failed\n");
+                       "vgaHWRestoreFonts: vgaHWMapMem() failed");
             return;
         }
     }
@@ -907,7 +909,7 @@ vgaHWSaveFonts(ScrnInfoPtr scrninfp, vgaRegPtr save)
         doMap = TRUE;
         if (!vgaHWMapMem(scrninfp)) {
             xf86DrvMsg(scrninfp->scrnIndex, X_ERROR,
-                       "vgaHWSaveFonts: vgaHWMapMem() failed\n");
+                       "vgaHWSaveFonts: vgaHWMapMem() failed");
             return;
         }
     }
@@ -1010,24 +1012,24 @@ vgaHWSaveMode(ScrnInfoPtr scrninfp, vgaRegPtr save)
 
     for (i = 0; i < save->numCRTC; i++) {
         save->CRTC[i] = hwp->readCrtc(hwp, i);
-        DebugF("CRTC[0x%02x] = 0x%02x\n", i, save->CRTC[i]);
+        DebugF("CRTC[0x%02x] = 0x%02x", i, save->CRTC[i]);
     }
 
     hwp->enablePalette(hwp);
     for (i = 0; i < save->numAttribute; i++) {
         save->Attribute[i] = hwp->readAttr(hwp, i);
-        DebugF("Attribute[0x%02x] = 0x%02x\n", i, save->Attribute[i]);
+        DebugF("Attribute[0x%02x] = 0x%02x", i, save->Attribute[i]);
     }
     hwp->disablePalette(hwp);
 
     for (i = 0; i < save->numGraphics; i++) {
         save->Graphics[i] = hwp->readGr(hwp, i);
-        DebugF("Graphics[0x%02x] = 0x%02x\n", i, save->Graphics[i]);
+        DebugF("Graphics[0x%02x] = 0x%02x", i, save->Graphics[i]);
     }
 
     for (i = 1; i < save->numSequencer; i++) {
         save->Sequencer[i] = hwp->readSeq(hwp, i);
-        DebugF("Sequencer[0x%02x] = 0x%02x\n", i, save->Sequencer[i]);
+        DebugF("Sequencer[0x%02x] = 0x%02x", i, save->Sequencer[i]);
     }
 }
 
@@ -1072,7 +1074,7 @@ vgaHWSaveColormap(ScrnInfoPtr scrninfp, vgaRegPtr save)
             DebugF("0x%02x, ", save->DAC[i]);
             break;
         case 2:
-            DebugF("0x%02x\n", save->DAC[i]);
+            DebugF("0x%02x", save->DAC[i]);
         }
     }
 
@@ -1098,7 +1100,7 @@ vgaHWSaveColormap(ScrnInfoPtr scrninfp, vgaRegPtr save)
          */
         memmove(save->DAC, defaultDAC, 768);
         xf86DrvMsg(scrninfp->scrnIndex, X_WARNING,
-                   "Cannot read colourmap from VGA.  Will restore with default\n");
+                   "Cannot read colourmap from VGA.  Will restore with default");
     }
     else {
         /* save the colourmap */
@@ -1114,7 +1116,7 @@ vgaHWSaveColormap(ScrnInfoPtr scrninfp, vgaRegPtr save)
                 DebugF("0x%02x, ", save->DAC[i]);
                 break;
             case 2:
-                DebugF("0x%02x\n", save->DAC[i]);
+                DebugF("0x%02x", save->DAC[i]);
             }
         }
     }
@@ -1611,7 +1613,7 @@ vgaHWGetHWRec(ScrnInfoPtr scrp)
     }
     if (xf86FindOption(scrp->confScreen->options, "ShowOverscan")) {
         xf86MarkOptionUsedByName(scrp->confScreen->options, "ShowOverscan");
-        xf86DrvMsg(scrp->scrnIndex, X_CONFIG, "Showing overscan area\n");
+        xf86DrvMsg(scrp->scrnIndex, X_CONFIG, "Showing overscan area");
         regp->DAC[765] = 0x3F;
         regp->DAC[766] = 0x00;
         regp->DAC[767] = 0x3F;
@@ -1674,7 +1676,7 @@ vgaHWMapMem(ScrnInfoPtr scrp)
      * XXX This is not correct but we do it
      * for now.
      */
-    DebugF("Mapping VGAMem\n");
+    DebugF("Mapping VGAMem");
     pci_device_map_legacy(hwp->dev, hwp->MapPhys, hwp->MapSize,
                           PCI_DEV_MAP_FLAG_WRITABLE, &hwp->Base);
     return hwp->Base != NULL;
@@ -1688,7 +1690,7 @@ vgaHWUnmapMem(ScrnInfoPtr scrp)
     if (hwp->Base == NULL)
         return;
 
-    DebugF("Unmapping VGAMem\n");
+    DebugF("Unmapping VGAMem");
     pci_device_unmap_legacy(hwp->dev, hwp->Base, hwp->MapSize);
     hwp->Base = NULL;
 }
@@ -1705,7 +1707,7 @@ vgaHWGetIOBase(vgaHWPtr hwp)
     hwp->IOBase = (hwp->readMiscOut(hwp) & 0x01) ?
         VGA_IOBASE_COLOR : VGA_IOBASE_MONO;
     xf86DrvMsgVerb(hwp->pScrn->scrnIndex, X_INFO, 3,
-                   "vgaHWGetIOBase: hwp->IOBase is 0x%04x\n", hwp->IOBase);
+                   "vgaHWGetIOBase: hwp->IOBase is 0x%04x", hwp->IOBase);
 }
 
 void
@@ -1771,7 +1773,7 @@ vgaHWSetOverscan(ScrnInfoPtr pScrn, int overscan)
         red = hwp->readDacData(hwp);
         green = hwp->readDacData(hwp);
         blue = hwp->readDacData(hwp);
-        ErrorF("Overscan index is 0x%02x, colours are #%02x%02x%02x\n",
+        ErrorF("Overscan index is 0x%02x, colours are #%02x%02x%02x",
                ov, red, green, blue);
     }
 #endif

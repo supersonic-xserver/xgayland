@@ -52,6 +52,7 @@
 
 #include "xwayland-screen.h"
 #include "xwayland-xtest.h"
+#include \"os/log_priv.h\"\n#include \"os/client_priv.h\"\n
 
 #define debug_ei(...) DebugF("[xwayland ei] " __VA_ARGS__)
 #define error_ei(...) ErrorF("[xwayland ei] " __VA_ARGS__)

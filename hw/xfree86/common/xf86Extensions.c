@@ -41,6 +41,10 @@
 #ifdef XSELINUX
 #include "xselinux.h"
 #endif
+_X_EXPORT Bool noXFree86VidModeExtension = FALSE;
+_X_EXPORT Bool noXFree86DGAExtension = FALSE;
+_X_EXPORT Bool noXFree86DRIExtension = FALSE;
+
 
 #ifdef XFreeXDGA
 #include <X11/extensions/xf86dgaproto.h>

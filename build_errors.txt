@@ -1,0 +1,589 @@
+ninja: Entering directory `build'
+[1/46] Compiling C object hw/xwayland/Xwayland.p/xwayland-xtest.c.o
+FAILED: [code=1] hw/xwayland/Xwayland.p/xwayland-xtest.c.o 
+cc -Ihw/xwayland/Xwayland.p -Ihw/xwayland -I../hw/xwayland -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Iglx -I../glx -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/lib64/libffi/include -I/usr/include/libdrm -I/usr/include/libei-1.0 -I/usr/include/elogind -I/usr/include/libdecor-0 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -isystem /usr/include/bsd -DLIBBSD_OVERLAY -MD -MQ hw/xwayland/Xwayland.p/xwayland-xtest.c.o -MF hw/xwayland/Xwayland.p/xwayland-xtest.c.o.d -o hw/xwayland/Xwayland.p/xwayland-xtest.c.o -c ../hw/xwayland/xwayland-xtest.c
+../hw/xwayland/xwayland-xtest.c:55:10: error: ‘#include’ expects ‘"FILENAME"’ or ‘<FILENAME>’
+   55 | #include \"os/log_priv.h\"\n#include \"os/client_priv.h\"\n
+      |          ^
+../hw/xwayland/xwayland-xtest.c: In function ‘free_oeffis’:
+../hw/xwayland/xwayland-xtest.c:57:23: error: implicit declaration of function ‘DebugF’ [-Wimplicit-function-declaration]
+   57 | #define debug_ei(...) DebugF("[xwayland ei] " __VA_ARGS__)
+      |                       ^~~~~~
+../hw/xwayland/xwayland-xtest.c:203:9: note: in expansion of macro ‘debug_ei’
+  203 |         debug_ei("Removing OEFFIS fd=%d\n", xwl_ei_client->oeffis_fd);
+      |         ^~~~~~~~
+../hw/xwayland/xwayland-xtest.c:57:23: warning: nested extern declaration of ‘DebugF’ [-Wnested-externs]
+   57 | #define debug_ei(...) DebugF("[xwayland ei] " __VA_ARGS__)
+      |                       ^~~~~~
+../hw/xwayland/xwayland-xtest.c:203:9: note: in expansion of macro ‘debug_ei’
+  203 |         debug_ei("Removing OEFFIS fd=%d\n", xwl_ei_client->oeffis_fd);
+      |         ^~~~~~~~
+../hw/xwayland/xwayland-xtest.c: In function ‘setup_ei’:
+../hw/xwayland/xwayland-xtest.c:363:15: error: implicit declaration of function ‘GetClientCmdName’; did you mean ‘GetClientFd’? [-Wimplicit-function-declaration]
+  363 |     cmdname = GetClientCmdName(client);
+      |               ^~~~~~~~~~~~~~~~
+      |               GetClientFd
+../hw/xwayland/xwayland-xtest.c:363:15: warning: nested extern declaration of ‘GetClientCmdName’ [-Wnested-externs]
+../hw/xwayland/xwayland-xtest.c:363:13: error: assignment to ‘const char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  363 |     cmdname = GetClientCmdName(client);
+      |             ^
+../hw/xwayland/xwayland-xtest.c: In function ‘reuse_client’:
+../hw/xwayland/xwayland-xtest.c:624:27: error: initialization of ‘const char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  624 |     const char *cmdname = GetClientCmdName(client);
+      |                           ^~~~~~~~~~~~~~~~
+[2/46] Compiling C object hw/xfree86/vgahw/libvgahw.so.p/vgaHW.c.o
+FAILED: [code=1] hw/xfree86/vgahw/libvgahw.so.p/vgaHW.c.o 
+cc -Ihw/xfree86/vgahw/libvgahw.so.p -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/int10 -I../hw/xfree86/int10 -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -MD -MQ hw/xfree86/vgahw/libvgahw.so.p/vgaHW.c.o -MF hw/xfree86/vgahw/libvgahw.so.p/vgaHW.c.o.d -o hw/xfree86/vgahw/libvgahw.so.p/vgaHW.c.o -c ../hw/xfree86/vgahw/vgaHW.c
+../hw/xfree86/vgahw/vgaHW.c:27:48: error: expected ‘;’ before ‘extern’
+   27 | extern _X_EXPORT Bool xf86GetFlipPixels(void);n
+      |                                                ^
+      |                                                ;
+[3/46] Compiling C object hw/xfree86/int10/libint10.so.p/vbeModes.c.o
+FAILED: [code=1] hw/xfree86/int10/libint10.so.p/vbeModes.c.o 
+cc -Ihw/xfree86/int10/libint10.so.p -Ihw/xfree86/int10 -I../hw/xfree86/int10 -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -Ihw/xfree86/x86emu -I../hw/xfree86/x86emu -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -D_PC -D_X86EMU -DNO_SYS_HEADERS -Wno-format-nonliteral -MD -MQ hw/xfree86/int10/libint10.so.p/vbeModes.c.o -MF hw/xfree86/int10/libint10.so.p/vbeModes.c.o.d -o hw/xfree86/int10/libint10.so.p/vbeModes.c.o -c ../hw/xfree86/int10/vbeModes.c
+../hw/xfree86/int10/vbeModes.c:35:17: error: expected ‘;’ before ‘const’
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                 ^~~~~~
+      |                 ;
+../hw/xfree86/int10/vbeModes.c:35:53: error: unknown type name ‘ModeStatus’
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                     ^~~~~~~~~~
+../hw/xfree86/int10/vbeModes.c:35:72: error: stray ‘\’ in program
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                        ^
+../hw/xfree86/int10/vbeModes.c:35:73: error: unknown type name ‘nextern’
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                         ^~~~~~~
+../hw/xfree86/int10/vbeModes.c:35:91: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘Bool’
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                                           ^~~~
+../hw/xfree86/int10/vbeModes.c:35:91: error: unknown type name ‘Bool’; did you mean ‘_Bool’?
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                                           ^~~~
+      |                                                                                           _Bool
+../hw/xfree86/int10/vbeModes.c:35:133: error: stray ‘\’ in program
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                                                                                     ^
+../hw/xfree86/int10/vbeModes.c:35:135: error: expected ‘;’ before ‘typedef’
+   35 | extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
+      |                                                                                                                                       ^
+      |                                                                                                                                       ;
+../hw/xfree86/int10/vbeModes.c: In function ‘VBEGetModePool’:
+../hw/xfree86/int10/vbeModes.c:295:32: error: implicit declaration of function ‘xf86ModeStatusToString’; did you mean ‘xf86TokenToString’? [-Wimplicit-function-declaration]
+  295 |                                xf86ModeStatusToString(status));
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+      |                                xf86TokenToString
+../hw/xfree86/int10/vbeModes.c:295:32: warning: nested extern declaration of ‘xf86ModeStatusToString’ [-Wnested-externs]
+../hw/xfree86/int10/vbeModes.c:293:60: warning: format ‘%s’ expects argument of type ‘char *’, but argument 6 has type ‘int’ [-Wformat=]
+  293 |                                "Not using mode \"%dx%d\" (%s)\n",
+      |                                                           ~^
+      |                                                            |
+      |                                                            char *
+      |                                                           %d
+  294 |                                pMode->HDisplay, pMode->VDisplay,
+  295 |                                xf86ModeStatusToString(status));
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                int
+../hw/xfree86/int10/vbeModes.c:326:60: warning: format ‘%s’ expects argument of type ‘char *’, but argument 6 has type ‘int’ [-Wformat=]
+  326 |                                "Not using mode \"%dx%d\" (%s)\n",
+      |                                                           ~^
+      |                                                            |
+      |                                                            char *
+      |                                                           %d
+  327 |                                pMode->HDisplay, pMode->VDisplay,
+  328 |                                xf86ModeStatusToString(status));
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                int
+../hw/xfree86/int10/vbeModes.c: In function ‘VBESetModeParameters’:
+../hw/xfree86/int10/vbeModes.c:420:13: error: implicit declaration of function ‘DebugF’ [-Wimplicit-function-declaration]
+  420 |             DebugF("Setting clock %.2fMHz, closest is %.2fMHz\n",
+      |             ^~~~~~
+../hw/xfree86/int10/vbeModes.c:420:13: warning: nested extern declaration of ‘DebugF’ [-Wnested-externs]
+[4/46] Compiling C object hw/xfree86/int10/libint10.so.p/generic.c.o
+FAILED: [code=1] hw/xfree86/int10/libint10.so.p/generic.c.o 
+cc -Ihw/xfree86/int10/libint10.so.p -Ihw/xfree86/int10 -I../hw/xfree86/int10 -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -Ihw/xfree86/x86emu -I../hw/xfree86/x86emu -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -D_PC -D_X86EMU -DNO_SYS_HEADERS -Wno-format-nonliteral -MD -MQ hw/xfree86/int10/libint10.so.p/generic.c.o -MF hw/xfree86/int10/libint10.so.p/generic.c.o.d -o hw/xfree86/int10/libint10.so.p/generic.c.o -c ../hw/xfree86/int10/generic.c
+../hw/xfree86/int10/generic.c: In function ‘xf86ExtendedInitInt10’:
+../hw/xfree86/int10/generic.c:127:13: error: implicit declaration of function ‘xf86FindScreenForEntity’ [-Wimplicit-function-declaration]
+  127 |     pScrn = xf86FindScreenForEntity(entityIndex);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/int10/generic.c:127:13: warning: nested extern declaration of ‘xf86FindScreenForEntity’ [-Wnested-externs]
+../hw/xfree86/int10/generic.c:127:11: error: assignment to ‘ScrnInfoPtr’ {aka ‘struct _ScrnInfoRec *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  127 |     pScrn = xf86FindScreenForEntity(entityIndex);
+      |           ^
+../hw/xfree86/int10/generic.c:174:9: error: implicit declaration of function ‘xf86IsEntityPrimary’; did you mean ‘xf86GetEntityPrivate’? [-Wimplicit-function-declaration]
+  174 |     if (xf86IsEntityPrimary(entityIndex) && !(initPrimary(options))) {
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         xf86GetEntityPrivate
+../hw/xfree86/int10/generic.c:174:9: warning: nested extern declaration of ‘xf86IsEntityPrimary’ [-Wnested-externs]
+[5/46] Compiling C object hw/xfree86/common/libxorg_common.a.p/xf86Configure.c.o
+FAILED: [code=1] hw/xfree86/common/libxorg_common.a.p/xf86Configure.c.o 
+cc -Ihw/xfree86/common/libxorg_common.a.p -Ihw/xfree86/common -I../hw/xfree86/common -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/int10 -I../hw/xfree86/int10 -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/elogind -I/usr/include/libdrm -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS '-DFALLBACK_INPUT_DRIVER="libinput"' -MD -MQ hw/xfree86/common/libxorg_common.a.p/xf86Configure.c.o -MF hw/xfree86/common/libxorg_common.a.p/xf86Configure.c.o.d -o hw/xfree86/common/libxorg_common.a.p/xf86Configure.c.o -c ../hw/xfree86/common/xf86Configure.c
+In file included from ../hw/xfree86/common/xf86Configure.c:35:
+../hw/xfree86/common/xf86Priv.h:150:19: warning: ‘enum ExitCode’ declared inside parameter list will not be visible outside of this definition or declaration
+  150 | xf86CloseLog(enum ExitCode error);
+      |                   ^~~~~~~~
+../hw/xfree86/common/xf86Configure.c: In function ‘OsCleanup’:
+../hw/xfree86/common/xf86Configure.c:48:31: error: stray ‘\’ in program
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                               ^
+../hw/xfree86/common/xf86Configure.c:48:73: error: stray ‘\’ in program
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                                                         ^
+../hw/xfree86/common/xf86Configure.c:48:32: error: unknown type name ‘n’
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                ^
+../hw/xfree86/common/xf86Configure.c:48:75: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                                                           ^
+../hw/xfree86/common/xf86Configure.c:48:76: error: stray ‘\’ in program
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                                                            ^
+../hw/xfree86/common/xf86Configure.c:48:77: error: ‘n’ undeclared (first use in this function); did you mean ‘yn’?
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                                                             ^
+      |                                                                             yn
+../hw/xfree86/common/xf86Configure.c:48:77: note: each undeclared identifier is reported only once for each function it appears in
+../hw/xfree86/common/xf86Configure.c:48:78: error: expected ‘;’ before ‘typedef’
+   48 | void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
+      |                                                                              ^
+      |                                                                              ;
+In file included from ../hw/xfree86/common/xf86Configure.c:56:
+../hw/xfree86/loader/loaderProcs.h:71:6: warning: nested extern declaration of ‘LoaderInit’ [-Wnested-externs]
+   71 | void LoaderInit(void);
+      |      ^~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:73:1: error: unknown type name ‘ModuleDescPtr’
+   73 | ModuleDescPtr LoadModule(const char *, void *, const XF86ModReqInfo *, int *);
+      | ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:73:15: warning: nested extern declaration of ‘LoadModule’ [-Wnested-externs]
+   73 | ModuleDescPtr LoadModule(const char *, void *, const XF86ModReqInfo *, int *);
+      |               ^~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:74:1: error: unknown type name ‘ModuleDescPtr’
+   74 | ModuleDescPtr DuplicateModule(ModuleDescPtr mod, ModuleDescPtr parent);
+      | ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:74:31: error: unknown type name ‘ModuleDescPtr’
+   74 | ModuleDescPtr DuplicateModule(ModuleDescPtr mod, ModuleDescPtr parent);
+      |                               ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:74:50: error: unknown type name ‘ModuleDescPtr’
+   74 | ModuleDescPtr DuplicateModule(ModuleDescPtr mod, ModuleDescPtr parent);
+      |                                                  ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:75:1: error: parameter names (without types) in function declaration [-Wdeclaration-missing-parameter-type]
+   75 | void UnloadDriver(ModuleDescPtr);
+      | ^~~~
+../hw/xfree86/loader/loaderProcs.h:75:6: warning: nested extern declaration of ‘UnloadDriver’ [-Wnested-externs]
+   75 | void UnloadDriver(ModuleDescPtr);
+      |      ^~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:76:6: warning: nested extern declaration of ‘LoaderSetPath’ [-Wnested-externs]
+   76 | void LoaderSetPath(const char *path);
+      |      ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:78:6: warning: nested extern declaration of ‘LoaderUnload’ [-Wnested-externs]
+   78 | void LoaderUnload(const char *, void *);
+      |      ^~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:79:38: error: unknown type name ‘ModuleDescPtr’
+   79 | unsigned long LoaderGetModuleVersion(ModuleDescPtr mod);
+      |                                      ^~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:81:6: warning: nested extern declaration of ‘LoaderResetOptions’ [-Wnested-externs]
+   81 | void LoaderResetOptions(void);
+      |      ^~~~~~~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:82:6: warning: nested extern declaration of ‘LoaderSetOptions’ [-Wnested-externs]
+   82 | void LoaderSetOptions(unsigned long);
+      |      ^~~~~~~~~~~~~~~~
+../hw/xfree86/loader/loaderProcs.h:84:14: warning: nested extern declaration of ‘LoaderListDir’ [-Wnested-externs]
+   84 | const char **LoaderListDir(const char *, const char **);
+      |              ^~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:70:12: warning: declaration of ‘ConfiguredMonitor’ shadows a global declaration [-Wshadow]
+   70 | xf86MonPtr ConfiguredMonitor;
+      |            ^~~~~~~~~~~~~~~~~
+In file included from ../hw/xfree86/ddc/xf86DDC.h:15,
+                 from ../hw/xfree86/common/xf86Configure.c:38:
+../hw/xfree86/ddc/edid.h:573:29: note: shadowed declaration is here
+  573 | extern _X_EXPORT xf86MonPtr ConfiguredMonitor;
+      |                             ^~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:71:6: warning: declaration of ‘xf86DoConfigurePass1’ shadows a global declaration [-Wshadow]
+   71 | Bool xf86DoConfigurePass1 = TRUE;
+      |      ^~~~~~~~~~~~~~~~~~~~
+In file included from ../hw/xfree86/common/xf86Configure.c:32:
+../hw/xfree86/common/xf86.h:57:23: note: shadowed declaration is here
+   57 | extern _X_EXPORT Bool xf86DoConfigurePass1;
+      |                       ^~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:95:1: warning: declaration of ‘xf86AddBusDeviceToConfigure’ shadows a global declaration [-Wshadow]
+   95 | xf86AddBusDeviceToConfigure(const char *driver, BusType bus, void *busData,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86.h:171:26: note: shadowed declaration is here
+  171 | extern _X_EXPORT GDevPtr xf86AddBusDeviceToConfigure(const char *driver,
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:171:1: error: invalid storage class for function ‘configureInputSection’
+  171 | configureInputSection(void)
+      | ^~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:209:1: error: invalid storage class for function ‘configureScreenSection’
+  209 | configureScreenSection(int screennum)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:241:1: error: invalid storage class for function ‘optionTypeToString’
+  241 | optionTypeToString(OptionValueType type)
+      | ^~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:266:1: error: invalid storage class for function ‘configureDeviceSection’
+  266 | configureDeviceSection(int screennum)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:341:1: error: invalid storage class for function ‘configureLayoutSection’
+  341 | configureLayoutSection(void)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:406:1: error: invalid storage class for function ‘configureFlagsSection’
+  406 | configureFlagsSection(void)
+      | ^~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:414:1: error: invalid storage class for function ‘configureModuleSection’
+  414 | configureModuleSection(void)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:438:1: error: invalid storage class for function ‘configureFilesSection’
+  438 | configureFilesSection(void)
+      | ^~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:451:1: error: invalid storage class for function ‘configureMonitorSection’
+  451 | configureMonitorSection(int screennum)
+      | ^~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:466:1: error: invalid storage class for function ‘handle_detailed_input’
+  466 | handle_detailed_input(struct detailed_monitor_section *det_mon, void *data)
+      | ^~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:490:1: error: invalid storage class for function ‘configureDDCMonitorSection’
+  490 | configureDDCMonitorSection(int screennum)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:548:1: error: invalid storage class for function ‘is_fallback’
+  548 | is_fallback(const char *s)
+      | ^~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:562:1: error: invalid storage class for function ‘driver_sort’
+  562 | driver_sort(const void *_l, const void *_r)
+      | ^~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:586:1: error: invalid storage class for function ‘fixup_video_driver_list’
+  586 | fixup_video_driver_list(const char **drivers)
+      | ^~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:597:1: error: invalid storage class for function ‘GenerateDriverList’
+  597 | GenerateDriverList(void)
+      | ^~~~~~~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:611:1: warning: declaration of ‘DoConfigure’ shadows a global declaration [-Wshadow]
+  611 | DoConfigure(void)
+      | ^~~~~~~~~~~
+../hw/xfree86/common/xf86Priv.h:130:1: note: shadowed declaration is here
+  130 | DoConfigure(void)
+      | ^~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c: In function ‘DoConfigure’:
+../hw/xfree86/common/xf86Configure.c:727:23: warning: declaration of ‘n’ shadows previous non-variable [-Wshadow]
+  727 |             int k, l, n, oldNumScreens;
+      |                       ^
+../hw/xfree86/common/xf86Configure.c: In function ‘OsCleanup’:
+../hw/xfree86/common/xf86Configure.c:854:1: warning: declaration of ‘DoShowOptions’ shadows a global declaration [-Wshadow]
+  854 | DoShowOptions(void)
+      | ^~~~~~~~~~~~~
+../hw/xfree86/common/xf86Priv.h:133:1: note: shadowed declaration is here
+  133 | DoShowOptions(void)
+      | ^~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:897:1: error: expected declaration or statement at end of input
+  897 | }
+      | ^
+../hw/xfree86/common/xf86Configure.c: At top level:
+../hw/xfree86/common/xf86Configure.c:854:1: warning: ‘DoShowOptions’ defined but not used [-Wunused-function]
+  854 | DoShowOptions(void)
+      | ^~~~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:611:1: warning: ‘DoConfigure’ defined but not used [-Wunused-function]
+  611 | DoConfigure(void)
+      | ^~~~~~~~~~~
+../hw/xfree86/common/xf86Configure.c:95:1: warning: ‘xf86AddBusDeviceToConfigure’ defined but not used [-Wunused-function]
+   95 | xf86AddBusDeviceToConfigure(const char *driver, BusType bus, void *busData,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[6/46] Compiling C object hw/xfree86/int10/libint10.so.p/vbe.c.o
+FAILED: [code=1] hw/xfree86/int10/libint10.so.p/vbe.c.o 
+cc -Ihw/xfree86/int10/libint10.so.p -Ihw/xfree86/int10 -I../hw/xfree86/int10 -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -Ihw/xfree86/x86emu -I../hw/xfree86/x86emu -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -D_PC -D_X86EMU -DNO_SYS_HEADERS -Wno-format-nonliteral -MD -MQ hw/xfree86/int10/libint10.so.p/vbe.c.o -MF hw/xfree86/int10/libint10.so.p/vbe.c.o.d -o hw/xfree86/int10/libint10.so.p/vbe.c.o -c ../hw/xfree86/int10/vbe.c
+../hw/xfree86/int10/vbe.c: In function ‘VBEExtendedInit’:
+../hw/xfree86/int10/vbe.c:54:25: error: implicit declaration of function ‘xf86FindScreenForEntity’ [-Wimplicit-function-declaration]
+   54 |     ScrnInfoPtr pScrn = xf86FindScreenForEntity(entityIndex);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/int10/vbe.c:54:25: warning: nested extern declaration of ‘xf86FindScreenForEntity’ [-Wnested-externs]
+../hw/xfree86/int10/vbe.c:54:25: error: initialization of ‘ScrnInfoPtr’ {aka ‘struct _ScrnInfoRec *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+[7/46] Compiling C object hw/xfree86/drivers/inputtest/inputtest_drv.so.p/xf86-input-inputtest.c.o
+FAILED: [code=1] hw/xfree86/drivers/inputtest/inputtest_drv.so.p/xf86-input-inputtest.c.o 
+cc -Ihw/xfree86/drivers/inputtest/inputtest_drv.so.p -Ihw/xfree86/drivers/inputtest -I../hw/xfree86/drivers/inputtest -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/int10 -I../hw/xfree86/int10 -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -MD -MQ hw/xfree86/drivers/inputtest/inputtest_drv.so.p/xf86-input-inputtest.c.o -MF hw/xfree86/drivers/inputtest/inputtest_drv.so.p/xf86-input-inputtest.c.o.d -o hw/xfree86/drivers/inputtest/inputtest_drv.so.p/xf86-input-inputtest.c.o -c ../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c: In function ‘try_accept_connection’:
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c:201:5: error: implicit declaration of function ‘xf86AddInputEventDrainCallback’ [-Wimplicit-function-declaration]
+  201 |     xf86AddInputEventDrainCallback(input_drain_callback, pInfo);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c:201:5: warning: nested extern declaration of ‘xf86AddInputEventDrainCallback’ [-Wnested-externs]
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c: In function ‘teardown_client_connection’:
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c:232:9: error: implicit declaration of function ‘xf86RemoveInputEventDrainCallback’ [-Wimplicit-function-declaration]
+  232 |         xf86RemoveInputEventDrainCallback(input_drain_callback, pInfo);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../hw/xfree86/drivers/inputtest/xf86-input-inputtest.c:232:9: warning: nested extern declaration of ‘xf86RemoveInputEventDrainCallback’ [-Wnested-externs]
+[8/46] Compiling C object glamor/libglamor.a.p/glamor_xv.c.o
+FAILED: [code=1] glamor/libglamor.a.p/glamor_xv.c.o 
+cc -Iglamor/libglamor.a.p -Iglamor -I../glamor -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Iglx -I../glx -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libdrm -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -MD -MQ glamor/libglamor.a.p/glamor_xv.c.o -MF glamor/libglamor.a.p/glamor_xv.c.o.d -o glamor/libglamor.a.p/glamor_xv.c.o -c ../glamor/glamor_xv.c
+../glamor/glamor_xv.c:410:1: warning: no previous prototype for ‘glamor_xv_render’ [-Wmissing-prototypes]
+  410 | glamor_xv_render(glamor_port_private *port_priv, int id)
+      | ^~~~~~~~~~~~~~~~
+../glamor/glamor_xv.c:635:1: error: conflicting types for ‘glamor_xv_put_image’; have ‘int(glamor_port_private *, struct _Drawable *, short int,  short int,  short int,  short int,  short int,  short int,  short int,  short int,  int,  unsigned char *, short int,  short int,  Bool,  struct pixman_region16 *)’ {aka ‘int(glamor_port_private *, struct _Drawable *, short int,  short int,  short int,  short int,  short int,  short int,  short int,  short int,  int,  unsigned char *, short int,  short int,  int,  struct pixman_region16 *)’}
+  635 | glamor_xv_put_image(glamor_port_private *port_priv,
+      | ^~~~~~~~~~~~~~~~~~~
+In file included from ../glamor/glamor_xv.c:41:
+../glamor/glamor_priv.h:978:5: note: previous declaration of ‘glamor_xv_put_image’ with type ‘int(glamor_port_private *, struct _Drawable *, short int,  short int,  short int,  short int,  struct pixman_region16 *)’
+  978 | int glamor_xv_put_image(glamor_port_private *port_priv,
+      |     ^~~~~~~~~~~~~~~~~~~
+[9/46] Compiling C object test/tests.p/xi2_protocol-xisetclientpointer.c.o
+[10/46] Compiling C object hw/xfree86/drivers/modesetting/modesetting_drv.so.p/driver.c.o
+FAILED: [code=1] hw/xfree86/drivers/modesetting/modesetting_drv.so.p/driver.c.o 
+cc -Ihw/xfree86/drivers/modesetting/modesetting_drv.so.p -Ihw/xfree86/drivers/modesetting -I../hw/xfree86/drivers/modesetting -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/int10 -I../hw/xfree86/int10 -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libdrm -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -MD -MQ hw/xfree86/drivers/modesetting/modesetting_drv.so.p/driver.c.o -MF hw/xfree86/drivers/modesetting/modesetting_drv.so.p/driver.c.o.d -o hw/xfree86/drivers/modesetting/modesetting_drv.so.p/driver.c.o -c ../hw/xfree86/drivers/modesetting/driver.c
+../hw/xfree86/drivers/modesetting/driver.c: In function ‘probe_hw’:
+../hw/xfree86/drivers/modesetting/driver.c:304:14: error: implicit declaration of function ‘xf86_platform_device_odev_attributes’; did you mean ‘xf86_get_platform_device_int_attrib’? [-Wimplicit-function-declaration]
+  304 |         fd = xf86_platform_device_odev_attributes(platform_dev)->fd;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |              xf86_get_platform_device_int_attrib
+../hw/xfree86/drivers/modesetting/driver.c:304:14: warning: nested extern declaration of ‘xf86_platform_device_odev_attributes’ [-Wnested-externs]
+../hw/xfree86/drivers/modesetting/driver.c:304:64: error: invalid type argument of ‘->’ (have ‘int’)
+  304 |         fd = xf86_platform_device_odev_attributes(platform_dev)->fd;
+      |                                                                ^~
+../hw/xfree86/drivers/modesetting/driver.c: In function ‘ms_platform_probe’:
+../hw/xfree86/drivers/modesetting/driver.c:466:65: error: invalid type argument of ‘->’ (have ‘int’)
+  466 |     const char *path = xf86_platform_device_odev_attributes(dev)->path;
+      |                                                                 ^~
+../hw/xfree86/drivers/modesetting/driver.c: In function ‘ms_get_drm_master_fd’:
+../hw/xfree86/drivers/modesetting/driver.c:1231:77: error: invalid type argument of ‘->’ (have ‘int’)
+ 1231 |                 xf86_platform_device_odev_attributes(pEnt->location.id.plat)->
+      |                                                                             ^~
+../hw/xfree86/drivers/modesetting/driver.c:1237:77: error: invalid type argument of ‘->’ (have ‘int’)
+ 1237 |                 xf86_platform_device_odev_attributes(pEnt->location.id.plat)->
+      |                                                                             ^~
+../hw/xfree86/drivers/modesetting/driver.c: In function ‘msEnableSharedPixmapFlipping’:
+../hw/xfree86/drivers/modesetting/driver.c:1655:77: error: invalid type argument of ‘->’ (have ‘int’)
+ 1655 |             xf86_platform_device_odev_attributes(ms->pEnt->location.id.plat)->
+      |                                                                             ^~
+[11/46] Compiling C object test/tests.p/xi2_protocol-xiquerypointer.c.o
+[12/46] Compiling C object hw/xfree86/glamor_egl/libglamoregl.so.p/glamor_xf86_xv.c.o
+FAILED: [code=1] hw/xfree86/glamor_egl/libglamoregl.so.p/glamor_xf86_xv.c.o 
+cc -Ihw/xfree86/glamor_egl/libglamoregl.so.p -Ihw/xfree86/glamor_egl -I../hw/xfree86/glamor_egl -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/int10 -I../hw/xfree86/int10 -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libdrm -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -MD -MQ hw/xfree86/glamor_egl/libglamoregl.so.p/glamor_xf86_xv.c.o -MF hw/xfree86/glamor_egl/libglamoregl.so.p/glamor_xf86_xv.c.o.d -o hw/xfree86/glamor_egl/libglamoregl.so.p/glamor_xf86_xv.c.o -c ../hw/xfree86/glamor_egl/glamor_xf86_xv.c
+../hw/xfree86/glamor_egl/glamor_xf86_xv.c: In function ‘glamor_xf86_xv_put_image’:
+../hw/xfree86/glamor_egl/glamor_xf86_xv.c:112:32: error: passing argument 7 of ‘glamor_xv_put_image’ makes pointer from integer without a cast [-Wint-conversion]
+  112 |                                src_w, src_h,
+      |                                ^~~~~
+      |                                |
+      |                                short int
+In file included from ../hw/xfree86/glamor_egl/glamor_xf86_xv.c:42:
+../glamor/glamor_priv.h:982:36: note: expected ‘RegionPtr’ {aka ‘struct pixman_region16 *’} but argument is of type ‘short int’
+  982 |                          RegionPtr clipBoxes);
+      |                          ~~~~~~~~~~^~~~~~~~~
+../hw/xfree86/glamor_egl/glamor_xf86_xv.c:109:12: error: too many arguments to function ‘glamor_xv_put_image’; expected 7, have 16
+  109 |     return glamor_xv_put_image(data, pDrawable,
+      |            ^~~~~~~~~~~~~~~~~~~
+......
+  112 |                                src_w, src_h,
+      |                                       ~~~~~
+../glamor/glamor_priv.h:978:5: note: declared here
+  978 | int glamor_xv_put_image(glamor_port_private *port_priv,
+      |     ^~~~~~~~~~~~~~~~~~~
+[13/46] Compiling C object hw/xwayland/Xwayland.p/xwayland-glamor-xv.c.o
+FAILED: [code=1] hw/xwayland/Xwayland.p/xwayland-glamor-xv.c.o 
+cc -Ihw/xwayland/Xwayland.p -Ihw/xwayland -I../hw/xwayland -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Iglx -I../glx -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/lib64/libffi/include -I/usr/include/libdrm -I/usr/include/libei-1.0 -I/usr/include/elogind -I/usr/include/libdecor-0 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -isystem /usr/include/bsd -DLIBBSD_OVERLAY -MD -MQ hw/xwayland/Xwayland.p/xwayland-glamor-xv.c.o -MF hw/xwayland/Xwayland.p/xwayland-glamor-xv.c.o.d -o hw/xwayland/Xwayland.p/xwayland-glamor-xv.c.o -c ../hw/xwayland/xwayland-glamor-xv.c
+In file included from ../hw/xwayland/xwayland-glamor-xv.c:49:
+../Xext/xvdix_priv.h:27:16: error: redefinition of ‘struct _XvPortNotifyRec’
+   27 | typedef struct _XvPortNotifyRec {
+      |                ^~~~~~~~~~~~~~~~
+In file included from ../glamor/glamor_priv.h:35,
+                 from ../hw/xwayland/xwayland-glamor-xv.c:48:
+../Xext/xvdix.h:88:16: note: originally defined here
+   88 | typedef struct _XvPortNotifyRec {
+      |                ^~~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:31:3: error: conflicting types for ‘XvPortNotifyRec’; have ‘struct _XvPortNotifyRec’
+   31 | } XvPortNotifyRec;
+      |   ^~~~~~~~~~~~~~~
+../Xext/xvdix.h:92:3: note: previous declaration of ‘XvPortNotifyRec’ with type ‘XvPortNotifyRec’ {aka ‘struct _XvPortNotifyRec’}
+   92 | } XvPortNotifyRec, *XvPortNotifyPtr;
+      |   ^~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:33:12: warning: redundant redeclaration of ‘XvReqCode’ [-Wredundant-decls]
+   33 | extern int XvReqCode;
+      |            ^~~~~~~~~
+../Xext/xvdix.h:62:22: note: previous declaration of ‘XvReqCode’ with type ‘int’
+   62 | extern _X_EXPORT int XvReqCode;
+      |                      ^~~~~~~~~
+../Xext/xvdix_priv.h:34:12: warning: redundant redeclaration of ‘XvErrorBase’ [-Wredundant-decls]
+   34 | extern int XvErrorBase;
+      |            ^~~~~~~~~~~
+../Xext/xvdix.h:64:22: note: previous declaration of ‘XvErrorBase’ with type ‘int’
+   64 | extern _X_EXPORT int XvErrorBase;
+      |                      ^~~~~~~~~~~
+../Xext/xvdix_priv.h:36:16: warning: redundant redeclaration of ‘XvRTPort’ [-Wredundant-decls]
+   36 | extern RESTYPE XvRTPort;
+      |                ^~~~~~~~
+../Xext/xvdix.h:66:26: note: previous declaration of ‘XvRTPort’ with type ‘RESTYPE’ {aka ‘unsigned int’}
+   66 | extern _X_EXPORT RESTYPE XvRTPort;
+      |                          ^~~~~~~~
+../Xext/xvdix_priv.h:39:5: warning: redundant redeclaration of ‘ProcXvDispatch’ [-Wredundant-decls]
+   39 | int ProcXvDispatch(ClientPtr);
+      |     ^~~~~~~~~~~~~~
+../Xext/xvdix.h:212:22: note: previous declaration of ‘ProcXvDispatch’ with type ‘int(struct _Client *)’
+  212 | extern _X_EXPORT int ProcXvDispatch(ClientPtr);
+      |                      ^~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:41:6: warning: redundant redeclaration of ‘XvFreeAdaptor’ [-Wredundant-decls]
+   41 | void XvFreeAdaptor(XvAdaptorPtr pAdaptor);
+      |      ^~~~~~~~~~~~~
+../Xext/xvdix.h:218:23: note: previous declaration of ‘XvFreeAdaptor’ with type ‘void(struct <anonymous> *)’
+  218 | extern _X_EXPORT void XvFreeAdaptor(XvAdaptorPtr pAdaptor);
+      |                       ^~~~~~~~~~~~~
+../Xext/xvdix_priv.h:43:6: warning: redundant redeclaration of ‘XvFillColorKey’ [-Wredundant-decls]
+   43 | void XvFillColorKey(DrawablePtr pDraw, CARD32 key, RegionPtr region);
+      |      ^~~~~~~~~~~~~~
+../Xext/xvdix.h:219:23: note: previous declaration of ‘XvFillColorKey’ with type ‘void(struct _Drawable *, CARD32,  struct pixman_region16 *)’ {aka ‘void(struct _Drawable *, unsigned int,  struct pixman_region16 *)’}
+  219 | extern void _X_EXPORT XvFillColorKey(DrawablePtr pDraw, CARD32 key,
+      |                       ^~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:45:5: warning: redundant redeclaration of ‘XvdiSelectVideoNotify’ [-Wredundant-decls]
+   45 | int XvdiSelectVideoNotify(ClientPtr client, DrawablePtr pDraw, BOOL onoff);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix.h:240:22: note: previous declaration of ‘XvdiSelectVideoNotify’ with type ‘int(struct _Client *, struct _Drawable *, BOOL)’ {aka ‘int(struct _Client *, struct _Drawable *, unsigned char)’}
+  240 | extern _X_EXPORT int XvdiSelectVideoNotify(ClientPtr, DrawablePtr, BOOL);
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:46:5: warning: redundant redeclaration of ‘XvdiSelectPortNotify’ [-Wredundant-decls]
+   46 | int XvdiSelectPortNotify(ClientPtr client, XvPortPtr pPort, BOOL onoff);
+      |     ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix.h:241:22: note: previous declaration of ‘XvdiSelectPortNotify’ with type ‘int(struct _Client *, struct _XvPortRec *, BOOL)’ {aka ‘int(struct _Client *, struct _XvPortRec *, unsigned char)’}
+  241 | extern _X_EXPORT int XvdiSelectPortNotify(ClientPtr, XvPortPtr, BOOL);
+      |                      ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:48:5: warning: redundant redeclaration of ‘XvdiPutVideo’ [-Wredundant-decls]
+   48 | int XvdiPutVideo(ClientPtr client, DrawablePtr pDraw, XvPortPtr pPort,
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:223:22: note: previous declaration of ‘XvdiPutVideo’ with type ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, INT16,  INT16,  CARD16,  CARD16,  INT16,  INT16,  CARD16,  CARD16)’ {aka ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, short int,  short int,  short unsigned int,  short unsigned int,  short int,  short int,  short unsigned int,  short unsigned int)’}
+  223 | extern _X_EXPORT int XvdiPutVideo(ClientPtr, DrawablePtr, XvPortPtr, GCPtr,
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:52:5: warning: redundant redeclaration of ‘XvdiPutStill’ [-Wredundant-decls]
+   52 | int XvdiPutStill(ClientPtr client, DrawablePtr pDraw, XvPortPtr pPort,
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:226:22: note: previous declaration of ‘XvdiPutStill’ with type ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, INT16,  INT16,  CARD16,  CARD16,  INT16,  INT16,  CARD16,  CARD16)’ {aka ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, short int,  short int,  short unsigned int,  short unsigned int,  short int,  short int,  short unsigned int,  short unsigned int)’}
+  226 | extern _X_EXPORT int XvdiPutStill(ClientPtr, DrawablePtr, XvPortPtr, GCPtr,
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:56:5: warning: redundant redeclaration of ‘XvdiPutImage’ [-Wredundant-decls]
+   56 | int XvdiPutImage(ClientPtr client, DrawablePtr pDraw, XvPortPtr pPort,
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:235:22: note: previous declaration of ‘XvdiPutImage’ with type ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, INT16,  INT16,  CARD16,  CARD16,  INT16,  INT16,  CARD16,  CARD16,  struct <anonymous> *, unsigned char *, Bool,  CARD16,  CARD16)’ {aka ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, short int,  short int,  short unsigned int,  short unsigned int,  short int,  short int,  short unsigned int,  short unsigned int,  struct <anonymous> *, unsigned char *, int,  short unsigned int,  short unsigned int)’}
+  235 | extern _X_EXPORT int XvdiPutImage(ClientPtr, DrawablePtr, XvPortPtr, GCPtr,
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:62:5: warning: redundant redeclaration of ‘XvdiGetVideo’ [-Wredundant-decls]
+   62 | int XvdiGetVideo(ClientPtr client, DrawablePtr pDraw, XvPortPtr pPort,
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:229:22: note: previous declaration of ‘XvdiGetVideo’ with type ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, INT16,  INT16,  CARD16,  CARD16,  INT16,  INT16,  CARD16,  CARD16)’ {aka ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, short int,  short int,  short unsigned int,  short unsigned int,  short int,  short int,  short unsigned int,  short unsigned int)’}
+  229 | extern _X_EXPORT int XvdiGetVideo(ClientPtr, DrawablePtr, XvPortPtr, GCPtr,
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:66:5: warning: redundant redeclaration of ‘XvdiGetStill’ [-Wredundant-decls]
+   66 | int XvdiGetStill(ClientPtr client, DrawablePtr pDraw, XvPortPtr pPort,
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:232:22: note: previous declaration of ‘XvdiGetStill’ with type ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, INT16,  INT16,  CARD16,  CARD16,  INT16,  INT16,  CARD16,  CARD16)’ {aka ‘int(struct _Client *, struct _Drawable *, struct _XvPortRec *, struct _GC *, short int,  short int,  short unsigned int,  short unsigned int,  short int,  short int,  short unsigned int,  short unsigned int)’}
+  232 | extern _X_EXPORT int XvdiGetStill(ClientPtr, DrawablePtr, XvPortPtr, GCPtr,
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:71:5: warning: redundant redeclaration of ‘XvdiSetPortAttribute’ [-Wredundant-decls]
+   71 | int XvdiSetPortAttribute(ClientPtr client, XvPortPtr pPort, Atom attribute,
+      |     ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix.h:242:22: note: previous declaration of ‘XvdiSetPortAttribute’ with type ‘int(struct _Client *, struct _XvPortRec *, Atom,  INT32)’ {aka ‘int(struct _Client *, struct _XvPortRec *, unsigned int,  int)’}
+  242 | extern _X_EXPORT int XvdiSetPortAttribute(ClientPtr, XvPortPtr, Atom, INT32);
+      |                      ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:73:5: warning: redundant redeclaration of ‘XvdiGetPortAttribute’ [-Wredundant-decls]
+   73 | int XvdiGetPortAttribute(ClientPtr client, XvPortPtr pPort, Atom attribute,
+      |     ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix.h:243:22: note: previous declaration of ‘XvdiGetPortAttribute’ with type ‘int(struct _Client *, struct _XvPortRec *, Atom,  INT32 *)’ {aka ‘int(struct _Client *, struct _XvPortRec *, unsigned int,  int *)’}
+  243 | extern _X_EXPORT int XvdiGetPortAttribute(ClientPtr, XvPortPtr, Atom, INT32 *);
+      |                      ^~~~~~~~~~~~~~~~~~~~
+../Xext/xvdix_priv.h:76:5: warning: redundant redeclaration of ‘XvdiStopVideo’ [-Wredundant-decls]
+   76 | int XvdiStopVideo(ClientPtr client, XvPortPtr pPort, DrawablePtr pDraw);
+      |     ^~~~~~~~~~~~~
+../Xext/xvdix.h:244:22: note: previous declaration of ‘XvdiStopVideo’ with type ‘int(struct _Client *, struct _XvPortRec *, struct _Drawable *)’
+  244 | extern _X_EXPORT int XvdiStopVideo(ClientPtr, XvPortPtr, DrawablePtr);
+      |                      ^~~~~~~~~~~~~
+../Xext/xvdix_priv.h:78:5: warning: redundant redeclaration of ‘XvdiMatchPort’ [-Wredundant-decls]
+   78 | int XvdiMatchPort(XvPortPtr pPort, DrawablePtr pDraw);
+      |     ^~~~~~~~~~~~~
+../Xext/xvdix.h:245:22: note: previous declaration of ‘XvdiMatchPort’ with type ‘int(struct _XvPortRec *, struct _Drawable *)’
+  245 | extern _X_EXPORT int XvdiMatchPort(XvPortPtr, DrawablePtr);
+      |                      ^~~~~~~~~~~~~
+../Xext/xvdix_priv.h:80:5: warning: redundant redeclaration of ‘XvdiGrabPort’ [-Wredundant-decls]
+   80 | int XvdiGrabPort(ClientPtr client, XvPortPtr pPort, Time ctime, int *p_result);
+      |     ^~~~~~~~~~~~
+../Xext/xvdix.h:246:22: note: previous declaration of ‘XvdiGrabPort’ with type ‘int(struct _Client *, struct _XvPortRec *, Time,  int *)’ {aka ‘int(struct _Client *, struct _XvPortRec *, unsigned int,  int *)’}
+  246 | extern _X_EXPORT int XvdiGrabPort(ClientPtr, XvPortPtr, Time, int *);
+      |                      ^~~~~~~~~~~~
+../Xext/xvdix_priv.h:81:5: warning: redundant redeclaration of ‘XvdiUngrabPort’ [-Wredundant-decls]
+   81 | int XvdiUngrabPort(ClientPtr client, XvPortPtr pPort, Time ctime);
+      |     ^~~~~~~~~~~~~~
+../Xext/xvdix.h:247:22: note: previous declaration of ‘XvdiUngrabPort’ with type ‘int(struct _Client *, struct _XvPortRec *, Time)’ {aka ‘int(struct _Client *, struct _XvPortRec *, unsigned int)’}
+  247 | extern _X_EXPORT int XvdiUngrabPort(ClientPtr, XvPortPtr, Time);
+      |                      ^~~~~~~~~~~~~~
+../hw/xwayland/xwayland-glamor-xv.c: In function ‘xwl_glamor_xv_put_image’:
+../hw/xwayland/xwayland-glamor-xv.c:191:35: error: passing argument 7 of ‘glamor_xv_put_image’ makes pointer from integer without a cast [-Wint-conversion]
+  191 |                                   src_w,
+      |                                   ^~~~~
+      |                                   |
+      |                                   CARD16 {aka short unsigned int}
+../glamor/glamor_priv.h:982:36: note: expected ‘RegionPtr’ {aka ‘struct pixman_region16 *’} but argument is of type ‘CARD16’ {aka ‘short unsigned int’}
+  982 |                          RegionPtr clipBoxes);
+      |                          ~~~~~~~~~~^~~~~~~~~
+../hw/xwayland/xwayland-glamor-xv.c:185:15: error: too many arguments to function ‘glamor_xv_put_image’; expected 7, have 16
+  185 |         ret = glamor_xv_put_image(gpp,
+      |               ^~~~~~~~~~~~~~~~~~~
+......
+  192 |                                   src_h,
+      |                                   ~~~~~
+../glamor/glamor_priv.h:978:5: note: declared here
+  978 | int glamor_xv_put_image(glamor_port_private *port_priv,
+      |     ^~~~~~~~~~~~~~~~~~~
+[14/46] Compiling C object hw/xfree86/int10/libint10.so.p/helper_exec.c.o
+FAILED: [code=1] hw/xfree86/int10/libint10.so.p/helper_exec.c.o 
+cc -Ihw/xfree86/int10/libint10.so.p -Ihw/xfree86/int10 -I../hw/xfree86/int10 -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Ihw/xfree86/common -I../hw/xfree86/common -Ihw/xfree86/ddc -I../hw/xfree86/ddc -Ihw/xfree86/dri2 -I../hw/xfree86/dri2 -Ihw/xfree86/i2c -I../hw/xfree86/i2c -Ihw/xfree86/loader -I../hw/xfree86/loader -Ihw/xfree86/modes -I../hw/xfree86/modes -Ihw/xfree86/os-support -I../hw/xfree86/os-support -I../hw/xfree86/os-support/bus -Ihw/xfree86/parser -I../hw/xfree86/parser -Ihw/xfree86/ramdac -I../hw/xfree86/ramdac -Ihw/xfree86/vgahw -I../hw/xfree86/vgahw -Ihw/xfree86/x86emu -I../hw/xfree86/x86emu -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -fPIC -isystem /usr/include/bsd -DLIBBSD_OVERLAY -DHAVE_XORG_CONFIG_H -DXORG_NO_SDKSYMS -D_PC -D_X86EMU -DNO_SYS_HEADERS -Wno-format-nonliteral -MD -MQ hw/xfree86/int10/libint10.so.p/helper_exec.c.o -MF hw/xfree86/int10/libint10.so.p/helper_exec.c.o.d -o hw/xfree86/int10/libint10.so.p/helper_exec.c.o -c ../hw/xfree86/int10/helper_exec.c
+../hw/xfree86/int10/helper_exec.c: In function ‘setup_int’:
+../hw/xfree86/int10/helper_exec.c:81:5: error: implicit declaration of function ‘OsBlockSignals’ [-Wimplicit-function-declaration]
+   81 |     OsBlockSignals();
+      |     ^~~~~~~~~~~~~~
+../hw/xfree86/int10/helper_exec.c:81:5: warning: nested extern declaration of ‘OsBlockSignals’ [-Wnested-externs]
+../hw/xfree86/int10/helper_exec.c: In function ‘finish_int’:
+../hw/xfree86/int10/helper_exec.c:88:5: error: implicit declaration of function ‘OsReleaseSignals’ [-Wimplicit-function-declaration]
+   88 |     OsReleaseSignals();
+      |     ^~~~~~~~~~~~~~~~
+../hw/xfree86/int10/helper_exec.c:88:5: warning: nested extern declaration of ‘OsReleaseSignals’ [-Wnested-externs]
+../hw/xfree86/int10/helper_exec.c: In function ‘xf86Int10SaveRestoreBIOSVars’:
+../hw/xfree86/int10/helper_exec.c:735:10: error: implicit declaration of function ‘xf86IsEntityPrimary’; did you mean ‘xf86GetEntityPrivate’? [-Wimplicit-function-declaration]
+  735 |     if (!xf86IsEntityPrimary(pInt->entityIndex)
+      |          ^~~~~~~~~~~~~~~~~~~
+      |          xf86GetEntityPrivate
+../hw/xfree86/int10/helper_exec.c:735:10: warning: nested extern declaration of ‘xf86IsEntityPrimary’ [-Wnested-externs]
+[15/46] Compiling C object test/tests.p/xi2_protocol-xigetclientpointer.c.o
+[16/46] Compiling C object hw/xwayland/Xwayland.p/xwayland.c.o
+FAILED: [code=1] hw/xwayland/Xwayland.p/xwayland.c.o 
+cc -Ihw/xwayland/Xwayland.p -Ihw/xwayland -I../hw/xwayland -I. -I.. -IXext -I../Xext -IXext/dri2 -I../Xext/dri2 -IXi -I../Xi -Icomposite -I../composite -Iexa -I../exa -Ifb -I../fb -Iglamor -I../glamor -Imi -I../mi -Imiext/damage -I../miext/damage -Imiext/shadow -I../miext/shadow -Imiext/sync -I../miext/sync -Idbe -I../dbe -Idix -I../dix -Idri3 -I../dri3 -Iinclude -I../include -Ipresent -I../present -Irandr -I../randr -Irender -I../render -Ixfixes -I../xfixes -Iglx -I../glx -I/usr/include/X11/dri -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/lib64/libffi/include -I/usr/include/libdrm -I/usr/include/libei-1.0 -I/usr/include/elogind -I/usr/include/libdecor-0 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=gnu99 -O2 -g -fno-strict-aliasing -fvisibility=hidden -Wvla -fno-common -Wshift-negative-value -Wchar-subscripts -Wall -Wchar-subscripts -Wpointer-arith -Wmissing-declarations -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Wbad-function-cast -Wold-style-definition -Wunused -Wuninitialized -Wshadow -Wmissing-noreturn -Wmissing-format-attribute -Wredundant-decls -Werror=implicit -Werror=nonnull -Werror=init-self -Werror=main -Werror=missing-braces -Werror=sequence-point -Werror=return-type -Werror=trigraphs -Werror=array-bounds -Werror=write-strings -Werror=address -Werror=int-to-pointer-cast -Werror=pointer-to-int-cast -Woverride-init -Wvla -Wincompatible-pointer-types -include dix-config.h -isystem /usr/include/bsd -DLIBBSD_OVERLAY -MD -MQ hw/xwayland/Xwayland.p/xwayland.c.o -MF hw/xwayland/Xwayland.p/xwayland.c.o.d -o hw/xwayland/Xwayland.p/xwayland.c.o -c ../hw/xwayland/xwayland.c
+../hw/xwayland/xwayland.c:74:9: warning: ‘XF86VIDMODE’ redefined
+   74 | #define XF86VIDMODE
+      |         ^~~~~~~~~~~
+In file included from <command-line>:
+./dix-config.h:278:9: note: this is the location of the previous definition
+  278 | #define XF86VIDMODE 1
+      |         ^~~~~~~~~~~
+../hw/xwayland/xwayland.c:83:1: warning: no previous prototype for ‘ddxGiveUp’ [-Wmissing-prototypes]
+   83 | ddxGiveUp(enum ExitCode error)
+      | ^~~~~~~~~
+../hw/xwayland/xwayland.c:88:1: warning: no previous prototype for ‘OsVendorInit’ [-Wmissing-prototypes]
+   88 | OsVendorInit(void)
+      | ^~~~~~~~~~~~
+../hw/xwayland/xwayland.c:95:1: warning: no previous prototype for ‘OsVendorFatalError’ [-Wmissing-prototypes]
+   95 | OsVendorFatalError(const char *f, va_list args)
+      | ^~~~~~~~~~~~~~~~~~
+../hw/xwayland/xwayland.c:111:1: warning: no previous prototype for ‘ddxInputThreadInit’ [-Wmissing-prototypes]
+  111 | ddxInputThreadInit(void)
+      | ^~~~~~~~~~~~~~~~~~
+../hw/xwayland/xwayland.c:117:1: warning: no previous prototype for ‘ddxUseMsg’ [-Wmissing-prototypes]
+  117 | ddxUseMsg(void)
+      | ^~~~~~~~~
+../hw/xwayland/xwayland.c:210:1: warning: no previous prototype for ‘ddxProcessArgument’ [-Wmissing-prototypes]
+  210 | ddxProcessArgument(int argc, char *argv[], int i)
+      | ^~~~~~~~~~~~~~~~~~
+../hw/xwayland/xwayland.c: In function ‘ddxProcessArgument’:
+../hw/xwayland/xwayland.c:298:20: warning: nested extern declaration of ‘ssx_tearfree_requested’ [-Wnested-externs]
+  298 |         extern int ssx_tearfree_requested;
+      |                    ^~~~~~~~~~~~~~~~~~~~~~
+../hw/xwayland/xwayland.c: At top level:
+../hw/xwayland/xwayland.c:456:1: error: conflicting types for ‘InitOutput’; have ‘void(int,  char **)’
+  456 | InitOutput(int argc, char **argv)
+      | ^~~~~~~~~~
+In file included from ../hw/xwayland/xwayland.c:54:
+../dix/screenint_priv.h:29:6: note: previous declaration of ‘InitOutput’ with type ‘void(ScreenInfo *, int,  char **)’ {aka ‘void(struct _ScreenInfo *, int,  char **)’}
+   29 | void InitOutput(ScreenInfo *pScreenInfo, int argc, char **argv);
+      |      ^~~~~~~~~~
+[17/46] Compiling C object test/tests.p/xi2_protocol-xipassivegrabdevice.c.o
+[18/46] Compiling C object test/tests.p/xi2_protocol-xigetselectedevents.c.o
+ninja: build stopped: subcommand failed.

@@ -136,8 +136,10 @@ meson setup "${BUILD_DIR}" \
     -Dxvfb=true \
     -Dudev=true \
     -Dglamor=true \
+    -Ddri1=true \
+    -Ddri2=true \
     -Ddri3=true \
-    --prefix=/usr/local/ssxlibre
+    --prefix=/usr/local/xsonicland
 
 echo ""
 echo "=========================================="

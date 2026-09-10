@@ -966,19 +966,22 @@ extern int glamor_xv_num_attributes;
 extern XvImageRec glamor_xv_images[];
 extern int glamor_xv_num_images;
 
-// void glamor_xv_init_port(glamor_port_private *port_priv);
-// void glamor_xv_stop_video(glamor_port_private *port_priv);
-// int glamor_xv_set_port_attribute(glamor_port_private *port_priv,
-//                                  Atom attribute, INT32 value);
-// int glamor_xv_get_port_attribute(glamor_port_private *port_priv,
-//                                  Atom attribute, INT32 *value);
-// int glamor_xv_query_image_attributes(int id,
-//                                      unsigned short *w, unsigned short *h,
-//                                      int *pitches, int *offsets);
-// int glamor_xv_put_image(glamor_port_private *port_priv,
-//                         DrawablePtr pDrawable,
-// The following prototypes are defined in glamor.h and are therefore
-// removed from glamor_priv.h to avoid duplicate declarations.
+void glamor_xv_init_port(glamor_port_private *port_priv);
+void glamor_xv_stop_video(glamor_port_private *port_priv);
+int glamor_xv_set_port_attribute(glamor_port_private *port_priv,
+                                 Atom attribute, INT32 value);
+int glamor_xv_get_port_attribute(glamor_port_private *port_priv,
+                                 Atom attribute, INT32 *value);
+int glamor_xv_query_image_attributes(int id,
+                                      unsigned short *w, unsigned short *h,
+                                      int *pitches, int *offsets);
+int glamor_xv_put_image(glamor_port_private *port_priv,
+                         DrawablePtr pDrawable,
+                         short src_x, short src_y,
+                         short drw_x, short drw_y,
+                         RegionPtr clipBoxes);
+void glamor_xv_core_init(ScreenPtr screen);
+
 // Bool glamor_set_pixmap_texture(PixmapPtr pixmap, unsigned int tex);
 // void glamor_set_pixmap_type(PixmapPtr pixmap, glamor_pixmap_type_t type);
 // /* This function should be called after glamor_init,

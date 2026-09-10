@@ -47,7 +47,7 @@ if build_screensaver
     srcs_xext += 'saver.c'
 endif
 
-if false # build_xace disabled for now
+if true # build_xace enabled for now
     srcs_xext += 'xace.c'
 endif
 
@@ -55,7 +55,7 @@ if build_xf86bigfont
     srcs_xext += 'xf86bigfont.c'
 endif
 
-if build_xinerama
+if true
     srcs_xext += ['panoramiX.c', 'panoramiXprocs.c', 'panoramiXSwap.c']
     hdrs_xext += ['panoramiX.h', 'panoramiXsrv.h']
 endif
@@ -68,7 +68,7 @@ if build_xselinux
     srcs_xext += ['xselinux_ext.c', 'xselinux_hooks.c', 'xselinux_label.c']
 endif
 
-if build_xv
+if false
     srcs_xext += ['xvmain.c', 'xvdisp.c', 'xvmc.c']
     hdrs_xext += ['xvdix.h', 'xvmcext.h']
 endif

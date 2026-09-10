@@ -32,6 +32,7 @@
 #ifdef HAVE_XORG_CONFIG_H
 #include <xorg-config.h>
 #endif
+extern _X_EXPORT const char *xf86ModeStatusToString(ModeStatus status);\nextern _X_EXPORT Bool xf86IsEntityPrimary(int entityIndex);\n
 
 #include <stdio.h>
 #include <string.h>

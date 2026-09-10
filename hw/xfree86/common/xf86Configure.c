@@ -45,6 +45,7 @@
 extern int xf86writeConfigFile(const char *, XF86ConfigPtr);
 extern void OsCleanup(Bool);
 
+void OsCleanup(Bool cleanup) {\n    /* Dummy implementation for Linux */\n}\n
 
 
 #if (defined(__sparc__) || defined(__sparc)) && !defined(__OpenBSD__)
